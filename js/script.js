@@ -1748,7 +1748,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (charIdx < targetText.length) {
           cmdEl.textContent += targetText[charIdx];
           charIdx++;
-          consoleBody.scrollTop = consoleBody.scrollHeight;
+          if (charIdx % 3 === 0 || charIdx === targetText.length) {
+            consoleBody.scrollTop = consoleBody.scrollHeight;
+          }
           const jitter = Math.random() * 20 - 8;
           safeTimeout(typeChar, Math.max(16, baseSpeed + jitter));
         } else {
@@ -1787,6 +1789,8 @@ document.addEventListener('DOMContentLoaded', () => {
       isTerminating = true;
       isWelcomeActive = false;
       clearAllTimeouts();
+
+      document.documentElement.classList.add('welcome-finished');
 
       try {
         sessionStorage.setItem('frnyx_welcome_seen', 'true');

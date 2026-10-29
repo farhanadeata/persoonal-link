@@ -3858,11 +3858,24 @@ html.skip-welcome-initial #welcome-screen {
   display: none !important;
 }
 
+html:not(.welcome-finished):not(.skip-welcome-initial) .page-wrapper,
+html:not(.welcome-finished):not(.skip-welcome-initial) .background-container {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+html.welcome-finished .page-wrapper,
 html.skip-welcome-initial .page-wrapper {
+  visibility: visible !important;
   animation: none !important;
   opacity: 1 !important;
   transform: none !important;
   filter: none !important;
+}
+
+html.welcome-finished .background-container,
+html.skip-welcome-initial .background-container {
+  visibility: visible !important;
 }
 
 .welcome-screen {
@@ -3908,19 +3921,28 @@ html.skip-welcome-initial .page-wrapper {
   z-index: 1;
 }
 
+.welcome-3d-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, transparent 30%, #06070a 92%);
+  pointer-events: none;
+  z-index: 2;
+}
+
 .welcome-cyber-grid {
   position: absolute;
-  bottom: -25%;
+  bottom: -20%;
   left: -50%;
   width: 200%;
-  height: 110%;
+  height: 100%;
   background-image:
-    linear-gradient(rgba(114, 230, 224, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(114, 230, 224, 0.09) 1px, transparent 1px);
+    linear-gradient(rgba(114, 230, 224, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(114, 230, 224, 0.08) 1px, transparent 1px);
   background-size: 50px 50px;
-  transform: perspective(500px) rotateX(76deg);
-  mask-image: radial-gradient(ellipse at 50% 25%, black 20%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 25%, black 20%, transparent 80%);
+  transform: rotateX(74deg);
+  transform-origin: 50% 100%;
+  pointer-events: none;
   animation: cyberGridDrift 14s linear infinite;
 }
 
@@ -4018,7 +4040,7 @@ html.skip-welcome-initial .page-wrapper {
 .welcome-glow-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(24px);
   pointer-events: none;
 }
 
@@ -4220,17 +4242,18 @@ html.skip-welcome-initial .page-wrapper {
 .wordmark-light-sweep {
   position: absolute;
   top: 0;
-  left: -120%;
+  left: 0;
   width: 70%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent);
-  transform: skewX(-25deg);
+  transform: translateX(-150%) skewX(-25deg);
+  will-change: transform;
   animation: wordmarkSweep 4s ease-in-out infinite 1s;
 }
 
 @keyframes wordmarkSweep {
-  0% { left: -120%; }
-  35%, 100% { left: 140%; }
+  0% { transform: translateX(-150%) skewX(-25deg); }
+  35%, 100% { transform: translateX(250%) skewX(-25deg); }
 }
 
 .welcome-headline {
@@ -4407,6 +4430,7 @@ html.skip-welcome-initial .page-wrapper {
   min-height: 155px;
   max-height: 185px;
   overflow-y: auto;
+  contain: content;
   font-family: var(--font-mono);
   font-size: 0.80rem;
   line-height: 1.6;
@@ -4442,7 +4466,6 @@ html.skip-welcome-initial .page-wrapper {
 .term-cmd.welcome {
   color: #72E6E0;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(114, 230, 224, 0.4);
 }
 
 .terminal-cursor {
@@ -4529,7 +4552,6 @@ html.skip-welcome-initial .page-wrapper {
 .meta-val-highlight {
   color: #72E6E0;
   font-weight: 600;
-  text-shadow: 0 0 8px rgba(114, 230, 224, 0.35);
 }
 
 .meta-skeleton {
@@ -4701,6 +4723,10 @@ html.skip-welcome-initial .page-wrapper {
     margin-left: -125px;
     margin-top: -125px;
     opacity: 0.22;
+  }
+
+  .profile-username {
+    animation: none !important;
   }
 }
 
