@@ -1,0 +1,20 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4ECCD3" />
+      <stop offset="50%" stop-color="#00ADB5" />
+      <stop offset="100%" stop-color="#080808" />
+    </linearGradient>
+    <radialGradient id="dotGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#72E6E0" />
+      <stop offset="100%" stop-color="#00ADB5" />
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0D0E11" />
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#252A34" stroke-width="2" />
+
+  <path d="M 22 18 L 44 18 L 44 24 L 29 24 L 29 30 L 41 30 L 41 36 L 29 36 L 29 46 L 22 46 Z" fill="#FFFFFF" />
+
+  <circle cx="44" cy="44" r="4.5" fill="url(#dotGrad)" />
+</svg>
+

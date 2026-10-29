@@ -1,0 +1,675 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Frnyx — Personal Links &amp; Portfolio</title>
+
+  <meta name="title" content="Frnyx — Personal Links &amp; Portfolio">
+  <meta name="description"
+    content="Halaman resmi personal link-in-bio Farhan (@frnyx). Temukan portofolio, formulir kontak, proyek GitHub, media sosial, dan musik favorit.">
+  <meta name="author" content="Farhan (Frnyx)">
+  <meta name="keywords" content="Farhan, Frnyx, Linktree, Portfolio, Web Developer, UI UX Designer, Personal Branding">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#080808">
+  <meta name="color-scheme" content="dark">
+
+  <script>
+(function () {
+      try {
+        const savedTheme = localStorage.getItem('frnyx-theme') || localStorage.getItem('frnyx_theme');
+        if (savedTheme === 'light' || savedTheme === 'dark') {
+          document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+          const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          document.documentElement.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+        }
+
+        if (sessionStorage.getItem('frnyx_welcome_seen') === 'true' || window.location.hash === '#projects') {
+          document.documentElement.classList.add('skip-welcome-initial');
+        }
+      } catch (e) { }
+    })();
+  </script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://farhanadeata.github.io/">
+  <meta property="og:title" content="Frnyx — Personal Links &amp; Portfolio">
+  <meta property="og:description"
+    content="Personal link-in-bio &amp; portfolio showcase of Farhan (@Frnyx). Modern Liquid Glass aesthetic.">
+  <meta property="og:image" content="assets/profile.jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://farhanadeata.github.io/">
+  <meta name="twitter:title" content="Frnyx — Personal Links &amp; Portfolio">
+  <meta name="twitter:description" content="Personal link-in-bio &amp; portfolio showcase of Farhan (@Frnyx).">
+  <meta name="twitter:image" content="assets/profile.jpeg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"
+    onerror="this.onerror=null;this.href='assets/logo.png';">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"
+    onerror="this.onerror=null;this.href='assets/logo.png';">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico"
+    onerror="this.onerror=null;this.href='assets/favicon.svg';">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"
+    onerror="this.onerror=null;this.href='assets/profile.jpeg';">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div id="welcome-screen" class="welcome-screen" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+
+    <div class="welcome-3d-scene" aria-hidden="true">
+
+      <div class="welcome-cyber-grid"></div>
+
+      <div class="welcome-wireframe-sphere">
+        <div class="sphere-axis axis-lat-1"></div>
+        <div class="sphere-axis axis-lat-2"></div>
+        <div class="sphere-axis axis-long-1"></div>
+        <div class="sphere-axis axis-long-2"></div>
+        <div class="sphere-orbit-ring ring-1"></div>
+        <div class="sphere-orbit-ring ring-2"></div>
+        <div class="sphere-core-pulse"></div>
+      </div>
+
+      <div class="welcome-glow-orb glow-cyan"></div>
+      <div class="welcome-glow-orb glow-violet"></div>
+      <div class="welcome-glow-orb glow-blue"></div>
+
+      <div class="cyber-light-beam beam-1"></div>
+      <div class="cyber-light-beam beam-2"></div>
+    </div>
+
+    <header class="welcome-top-bar">
+      <div class="welcome-system-tag">
+        <span class="system-pulse-dot" aria-hidden="true"></span>
+        <span class="system-tag-text">FRNYX OS // DEV_TERMINAL</span>
+      </div>
+
+      <button type="button" id="btn-skip-intro" class="skip-intro-btn" aria-label="Lewati intro sambutan (Tekan Esc)" title="Lewati intro (Esc)">
+        <span class="skip-key-badge" aria-hidden="true">ESC</span>
+        <span class="skip-label">Skip Intro</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="5 4 15 12 5 20 5 4"></polygon>
+          <line x1="19" y1="5" x2="19" y2="19"></line>
+        </svg>
+      </button>
+    </header>
+
+    <div class="welcome-stage" id="welcome-stage">
+
+      <div class="welcome-branding-header">
+        <div class="welcome-wordmark-container">
+          <span class="welcome-wordmark">FRNYX</span>
+          <div class="wordmark-light-sweep" aria-hidden="true"></div>
+        </div>
+
+        <h1 id="welcome-title" class="welcome-headline">
+          <span class="headline-text">WELCOME TO PERSONAL LINK</span>
+        </h1>
+
+        <p class="welcome-subheadline" id="welcome-subheadline">
+          Initializing digital experience...
+        </p>
+
+        <div class="welcome-tagline-strip">
+          <span class="tagline-dot" aria-hidden="true"></span>
+          <span class="welcome-tagline">Transforming Ideas into Digital Solutions</span>
+        </div>
+      </div>
+
+      <div class="welcome-terminal-card" id="welcome-terminal" tabindex="0" role="region" aria-label="Terminal Inisialisasi Sistem">
+
+        <div class="terminal-glass-glare" aria-hidden="true"></div>
+        <div class="terminal-glass-shimmer" aria-hidden="true"></div>
+
+        <div class="terminal-titlebar">
+          <div class="terminal-window-dots" aria-hidden="true">
+            <span class="term-dot dot-close"></span>
+            <span class="term-dot dot-min"></span>
+            <span class="term-dot dot-max"></span>
+          </div>
+
+          <div class="terminal-titlebar-label">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="terminal-icon" aria-hidden="true">
+              <polyline points="4 17 10 11 4 5"></polyline>
+              <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>
+            <span class="term-identity">frnyx@personal-link</span>
+            <span class="term-sep">:</span>
+            <span class="term-dir">~</span>
+          </div>
+
+          <div class="terminal-status-container">
+            <span class="term-status-indicator" id="term-status-indicator" aria-hidden="true"></span>
+            <span class="term-status-label" id="term-status-label">INITIALIZING</span>
+          </div>
+        </div>
+
+        <div class="terminal-console-body" id="terminal-console-body" role="log" aria-live="polite">
+
+        </div>
+
+        <div class="terminal-visitor-meta" id="terminal-visitor-meta">
+          <div class="visitor-meta-header">
+            <span class="visitor-meta-title">VISITOR TELEMETRY</span>
+            <span class="visitor-meta-badge">CONFIDENTIAL</span>
+          </div>
+
+          <div class="visitor-meta-grid">
+            <div class="meta-item">
+              <span class="meta-prop">PUBLIC IP</span>
+              <span class="meta-val meta-val-highlight" id="visitor-meta-ip"><span class="meta-skeleton">detecting...</span></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-prop">LOCATION</span>
+              <span class="meta-val" id="visitor-meta-location"><span class="meta-skeleton">locating...</span></span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-prop">TIMEZONE</span>
+              <span class="meta-val" id="visitor-meta-timezone">-</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-prop">BROWSER</span>
+              <span class="meta-val" id="visitor-meta-browser">-</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-prop">PLATFORM</span>
+              <span class="meta-val" id="visitor-meta-platform">-</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-prop">CONNECTION</span>
+              <span class="meta-val" id="visitor-meta-connection">-</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal-progress-dock">
+          <div class="progress-info-row">
+            <span class="progress-stage-name" id="progress-stage-name">INITIALIZING EXPERIENCE</span>
+            <span class="progress-counter" id="progress-counter">0%</span>
+          </div>
+          <div class="terminal-progress-bar-track">
+            <div class="terminal-progress-bar-fill" id="terminal-progress-bar-fill"></div>
+          </div>
+          <div class="terminal-ascii-preview" id="terminal-ascii-preview" aria-hidden="true">[░░░░░░░░░░░░░░░░░░░░]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="welcome-screen-flash" id="welcome-screen-flash" aria-hidden="true"></div>
+  </div>
+
+  <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+
+  <div class="background-container" aria-hidden="true" id="bg-container">
+
+    <div class="blob-mesh">
+      <div class="organic-blob blob-1"></div>
+      <div class="organic-blob blob-2"></div>
+      <div class="organic-blob blob-3"></div>
+      <div class="organic-blob blob-4"></div>
+      <div class="organic-blob blob-5"></div>
+    </div>
+
+    <div class="noise-overlay"></div>
+    <div class="vignette-overlay"></div>
+  </div>
+
+  <main class="page-wrapper" id="profile-card">
+
+    <div class="cinematic-bg-container" id="cinematic-bg-container" aria-hidden="true">
+      <div class="cinematic-bg-image" id="cinematic-bg-image"></div>
+      <div class="cinematic-bg-overlay"></div>
+      <div class="cinematic-bg-gradient-fade"></div>
+    </div>
+
+    <nav class="top-nav" aria-label="Aksi Halaman">
+
+      <button id="btn-theme-toggle" class="nav-action-btn theme-toggle-btn" type="button"
+        aria-label="Ganti Tema Tampilan" title="Ganti Mode Gelap / Terang">
+        <span class="theme-icon sun-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </span>
+        <span class="theme-icon moon-icon" aria-hidden="true">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </span>
+      </button>
+
+      <div class="nav-center-pill">
+        <span class="live-status-dot"></span>
+        <span id="nav-status-text">frnyx.dev</span>
+      </div>
+
+      <button id="btn-share-page" class="nav-action-btn" type="button" aria-label="Bagikan Halaman Ini"
+        title="Bagikan Halaman">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+      </button>
+    </nav>
+
+    <div class="content-card">
+
+      <header class="profile-header">
+        <div class="profile-aura-glow" aria-hidden="true"></div>
+        <div class="avatar-container" id="avatar-container">
+          <div class="avatar-ring"></div>
+          <div class="avatar-glow"></div>
+          <img id="profile-img" src="assets/profile.jpg" alt="Foto Profil Farhan @frnyx" class="profile-avatar"
+            width="104" height="104" loading="eager" decoding="async" />
+          <div id="avatar-fallback" class="avatar-fallback hidden">
+            <span>F</span>
+          </div>
+        </div>
+
+        <div class="profile-info">
+          <div class="username-wrapper">
+            <h1 id="profile-username" class="profile-username">@frnyx</h1>
+            <span id="verified-badge" class="verified-badge" title="Verified Creator" aria-label="Terverifikasi">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" fill="#72E6E0" />
+                <path d="M8.5 12.5L10.5 14.5L15.5 9.5" stroke="#080808" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </span>
+          </div>
+
+          <div id="status-badge-container" class="status-badge-container">
+            <div class="availability-badge">
+              <span class="status-pulse-dot"></span>
+              <span id="availability-text">Available for projects</span>
+            </div>
+          </div>
+
+          <div class="typing-container" id="typing-container" aria-live="polite">
+            <span class="typing-prefix" id="typing-prefix"></span>
+            <span id="typing-text" class="typing-text">IT Support</span>
+            <span class="typing-cursor" id="typing-cursor" aria-hidden="true"></span>
+          </div>
+
+          <p id="profile-bio" class="profile-bio">
+            Building sleek, high-performance digital experiences and interactive web applications.
+          </p>
+        </div>
+      </header>
+
+      <section class="links-section" aria-label="Tautan Utama">
+        <div id="links-container" class="links-container">
+
+        </div>
+
+        <noscript>
+          <div class="noscript-links">
+            <a href="https://farhanadeata.github.io/" class="fallback-link" target="_blank" rel="noopener noreferrer">My Portfolio</a>
+            <a href="assets/qris.jpeg" class="fallback-link">Give Me a Coffee ☕ (QRIS)</a>
+            <a href="mailto:nahraf270803@gmail.com?subject=Permintaan%20Jasa&body=Halo%2C%20saya%20ingin%20berdiskusi%20mengenai%20proyek%20dan%20layanan%20Anda."
+              class="fallback-link">Pesan Jasa</a>
+          </div>
+        </noscript>
+      </section>
+
+      <section class="socials-section" id="socials" aria-label="Media Sosial">
+        <div id="socials-container" class="socials-container">
+
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <p class="copyright" id="footer-copyright">© 2026 Frnyx</p>
+        <span class="footer-separator">•</span>
+        <p class="footer-note" id="footer-note">Crafted with care &amp; precision</p>
+      </footer>
+
+    </div>
+  </main>
+
+  <div id="link-popover" class="link-popover hidden" role="menu" aria-label="Opsi Tautan">
+    <div class="popover-arrow"></div>
+    <div class="popover-header">
+      <span id="popover-link-title" class="popover-link-title">Link Title</span>
+    </div>
+    <div class="popover-items">
+      <button type="button" class="popover-item" id="popover-btn-open" role="menuitem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+        <span>Buka tautan</span>
+      </button>
+
+      <button type="button" class="popover-item" id="popover-btn-copy" role="menuitem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        <span>Salin tautan</span>
+      </button>
+
+      <button type="button" class="popover-item" id="popover-btn-share" role="menuitem">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+        <span>Bagikan tautan</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="modal-contact" class="custom-modal-backdrop hidden" role="dialog" aria-modal="true"
+    aria-labelledby="contact-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#72E6E0" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h2 id="contact-modal-title" class="modal-title">Formulir Kontak</h2>
+            <p class="modal-subtitle">Kirim pesan langsung atau hubungi via email</p>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-contact" aria-label="Tutup modal">
+          &times;
+        </button>
+      </div>
+
+      <form id="contact-form" class="modal-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="contact-name">Nama Lengkap</label>
+          <input type="text" id="contact-name" placeholder="Masukkan nama Anda" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="contact-email">Alamat Email</label>
+          <input type="email" id="contact-email" placeholder="nama@domain.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="contact-subject">Subjek / Topik</label>
+          <input type="text" id="contact-subject" placeholder="Kolaborasi project / Tawaran kerja" required>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-message">Pesan Anda</label>
+          <textarea id="contact-message" rows="4" placeholder="Ceritakan detail proyek atau pertanyaan Anda..."
+            required></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" id="btn-submit-contact" class="modal-btn-primary">
+            <span>Kirim Pesan</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </form>
+
+      <div class="modal-footer-tip">
+        <p>💡 Ingin menggunakan Google Forms? Cukup ganti URL <code>#contact</code> di <code>js/config.js</code> dengan
+          tautan Google Forms Anda.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-qris" class="custom-modal-backdrop hidden" role="dialog" aria-modal="true"
+    aria-labelledby="qris-modal-title">
+    <div class="modal-card modal-qris-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#72E6E0" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+          </div>
+          <div>
+            <h2 id="qris-modal-title" class="modal-title">Support My Work</h2>
+            <p id="qris-modal-subtitle" class="modal-subtitle">Scan QRIS untuk memberikan dukungan</p>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-qris" aria-label="Tutup modal">
+          &times;
+        </button>
+      </div>
+
+      <div class="qris-image-container" id="qris-container">
+        <div class="qris-frame" id="qris-frame">
+          <img id="qris-image" src="assets/qris.jpeg" alt="Kode QRIS Pembayaran Farhan Frnyx" class="qris-image" />
+        </div>
+        <div id="qris-fallback" class="qris-fallback hidden">
+          <div class="qris-fallback-icon">💳</div>
+          <p class="qris-fallback-title">QRIS Belum Diunggah</p>
+          <p class="qris-fallback-text">Simpan gambar QRIS Anda di <code>assets/qris.jpeg</code> atau perbarui
+            pengaturannya di <code>js/config.js</code>.</p>
+        </div>
+      </div>
+
+      <div class="qris-actions">
+        <a id="btn-download-qris" href="assets/qris.jpeg" download="qris-farhan.jpeg" class="modal-btn-primary"
+          target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Unduh QRIS</span>
+        </a>
+        <button type="button" class="modal-btn-secondary" data-close-modal="modal-qris">
+          <span>Tutup</span>
+        </button>
+      </div>
+
+      <div class="modal-footer-tip">
+        <p>💡 Mendukung seluruh aplikasi pembayaran: GoPay, OVO, DANA, ShopeePay, LinkAja, BCA, Mandiri, BRI, BNI, dan
+          m-Banking lainnya.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-share" class="custom-modal-backdrop hidden" role="dialog" aria-modal="true"
+    aria-labelledby="share-modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#72E6E0" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+          </div>
+          <div>
+            <h2 id="share-modal-title" class="modal-title">Bagikan Profil</h2>
+            <p class="modal-subtitle">Sebarkan halaman ini ke teman atau rekan kerja</p>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-share" aria-label="Tutup modal">
+          &times;
+        </button>
+      </div>
+
+      <div class="share-url-box">
+        <input type="text" id="share-url-input" readonly value="https://farhanadeata.github.io/">
+        <button type="button" id="btn-copy-share-url" class="modal-btn-copy">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Salin</span>
+        </button>
+      </div>
+
+      <div class="quick-share-buttons">
+        <button type="button" id="btn-share-whatsapp" class="quick-share-btn">
+          <span>WhatsApp</span>
+        </button>
+        <button type="button" id="btn-share-telegram" class="quick-share-btn">
+          <span>Telegram</span>
+        </button>
+        <button type="button" id="btn-share-x" class="quick-share-btn">
+          <span>X (Twitter)</span>
+        </button>
+        <button type="button" id="btn-share-native" class="quick-share-btn">
+          <span>Opsi Lainnya</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-projects-gallery" class="custom-modal-backdrop projects-gallery-overlay hidden" role="dialog" aria-modal="true"
+    aria-labelledby="gallery-title">
+    <div class="gallery-sheet-card">
+
+      <div class="gallery-glow-orb orb-top-left" aria-hidden="true"></div>
+      <div class="gallery-glow-orb orb-bottom-right" aria-hidden="true"></div>
+
+      <header class="gallery-top-bar">
+        <div class="gallery-header-meta">
+          <div class="gallery-header-pill">
+            <span class="gallery-live-dot" aria-hidden="true"></span>
+            <span>SHOWCASE GALLERY</span>
+          </div>
+          <h2 id="gallery-title" class="gallery-main-title">Selected Projects</h2>
+          <p class="gallery-main-subtitle">A collection of experiments, ideas, and digital solutions.</p>
+        </div>
+
+        <button type="button" class="gallery-close-action-btn" data-close-modal="modal-projects-gallery"
+          aria-label="Tutup galeri proyek" title="Tutup galeri (Esc)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+          <span class="gallery-btn-label">Tutup</span>
+        </button>
+      </header>
+
+      <nav class="gallery-filters-container" aria-label="Filter kategori proyek">
+        <div class="gallery-filters-scroll" id="gallery-filter-tabs">
+
+        </div>
+      </nav>
+
+      <div class="gallery-body-area">
+        <div id="projects-grid" class="projects-grid-container" role="region" aria-label="Daftar Kartu Proyek">
+
+        </div>
+
+        <div id="projects-empty-state" class="projects-empty-state hidden">
+          <div class="empty-icon-wrap" aria-hidden="true">📁</div>
+          <h3 class="empty-title">Tidak ada proyek dalam kategori ini</h3>
+          <p class="empty-text">Pilih kategori lain untuk menjelajahi karya lainnya.</p>
+        </div>
+      </div>
+
+      <footer class="gallery-bottom-status">
+        <div class="gallery-footer-inner">
+          <div class="gallery-footer-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#72E6E0" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <p class="gallery-footer-text">
+            Menampilkan data dan teknologi berdasarkan repositori serta implementasi riil. Tautan demo dan kode sumber hanya disediakan jika tersedia secara publik.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div id="modal-project-detail" class="custom-modal-backdrop project-detail-overlay hidden" role="dialog" aria-modal="true"
+    aria-labelledby="project-detail-title">
+    <div class="project-detail-dialog-card">
+
+      <button type="button" class="detail-close-btn" data-close-modal="modal-project-detail"
+        aria-label="Tutup detail proyek" title="Tutup detail (Esc)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div id="project-detail-content" class="project-detail-content-wrapper">
+
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast-container hidden" role="status" aria-live="polite">
+    <div class="toast-card">
+      <div class="toast-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#72E6E0" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+      <span id="toast-message" class="toast-message">Notifikasi</span>
+    </div>
+  </div>
+
+  <script src="js/config.js">
+
+  </script>
+  <script src="js/script.js">
+
+  </script>
+</body>
+
+</html>
