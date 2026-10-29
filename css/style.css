@@ -3866,7 +3866,9 @@ html.skip-welcome-initial #welcome-screen {
   height: 100vh;
   height: 100dvh;
   z-index: 99999;
-  background-color: #06070a;
+  background-color: #06070a !important;
+  color-scheme: dark !important;
+  contain: paint;
   overflow-x: hidden;
   overflow-y: auto;
   display: flex;
@@ -4618,6 +4620,15 @@ html.skip-welcome-initial #welcome-screen {
 }
 
 @media (max-width: 640px) {
+  .blob-mesh {
+    filter: blur(28px) !important;
+    opacity: 0.55;
+  }
+
+  .welcome-glow-orb {
+    filter: blur(24px) !important;
+  }
+
   .welcome-top-bar {
     padding: 0 16px;
     top: 14px;

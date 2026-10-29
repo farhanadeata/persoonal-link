@@ -1,4 +1,6 @@
 ﻿document.addEventListener('DOMContentLoaded', () => {
+  if (window.__FRNYX_INITIALIZED__) return;
+  window.__FRNYX_INITIALIZED__ = true;
 
   const config = window.SITE_CONFIG || {};
   const animConfig = config.animation || config.effects || {};
@@ -61,11 +63,17 @@
   }
 
   function applyTheme(theme, save = true) {
-    document.documentElement.setAttribute('data-theme', theme);
+    const current = document.documentElement.getAttribute('data-theme');
+    if (current !== theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
 
     const themeColorMeta = document.querySelector('meta[name="theme-color"]');
     if (themeColorMeta) {
-      themeColorMeta.setAttribute('content', theme === 'light' ? '#F4F5F8' : '#060608');
+      const targetColor = theme === 'light' ? '#F4F5F8' : '#060608';
+      if (themeColorMeta.getAttribute('content') !== targetColor) {
+        themeColorMeta.setAttribute('content', targetColor);
+      }
     }
 
     if (save) {
@@ -91,14 +99,21 @@
       themeToggleBtn.addEventListener('click', toggleTheme);
     }
 
-    if (window.matchMedia) {
-      window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+    const defaultPref = (config.appearance && config.appearance.defaultTheme) || 'dark';
+    if (defaultPref === 'system' && window.matchMedia) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+      const handleMediaChange = (e) => {
         try {
           if (!localStorage.getItem(THEME_STORAGE_KEY)) {
             applyTheme(e.matches ? 'light' : 'dark', false);
           }
         } catch (err) {}
-      });
+      };
+      if (mediaQuery.addEventListener) {
+        mediaQuery.addEventListener('change', handleMediaChange);
+      } else if (mediaQuery.addListener) {
+        mediaQuery.addListener(handleMediaChange);
+      }
     }
   }
 
@@ -143,8 +158,13 @@
       };
     };
 
+    let lastWindowWidth = window.innerWidth;
     window.addEventListener('resize', () => {
-      const isMobileNow = window.innerWidth <= 600;
+      const currentWidth = window.innerWidth;
+      if (currentWidth === lastWindowWidth) return;
+      lastWindowWidth = currentWidth;
+
+      const isMobileNow = currentWidth <= 600;
       const currentBgPos = isMobileNow
         ? (app.backgroundPositionMobile || 'center 20%')
         : (app.backgroundPositionDesktop || 'center 25%');
@@ -1434,9 +1454,21 @@
     }, { passive: true });
   }
 
+  let lastScrollY = -1;
+  let scrollTicking = false;
+
   window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        const scrollY = Math.round(window.scrollY);
+        if (Math.abs(scrollY - lastScrollY) >= 2) {
+          lastScrollY = scrollY;
+          document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
   }, { passive: true });
 
   function initWelcomeScreen() {
@@ -1459,6 +1491,17 @@
       if (profileCard) profileCard.classList.add('page-revealed');
       return;
     }
+
+    window.addEventListener('pageshow', (e) => {
+      if (e.persisted) {
+        const seen = sessionStorage.getItem('frnyx_welcome_seen') === 'true';
+        if (seen && welcomeEl && !welcomeEl.classList.contains('hidden')) {
+          welcomeEl.classList.add('hidden');
+          if (profileCard) profileCard.classList.add('page-revealed');
+          document.body.style.overflow = '';
+        }
+      }
+    });
 
     let isWelcomeActive = true;
     let isTerminating = false;
@@ -1571,6 +1614,7 @@
 
         if (response.ok) {
           const data = await response.json();
+          if (!isWelcomeActive || isTerminating) return;
           if (data && data.ip) {
             const masked = maskIpAddress(data.ip);
             if (metaIp) metaIp.textContent = masked;
@@ -1586,15 +1630,16 @@
             return;
           }
         }
-      } catch (err) {
+      } catch (err) {}
 
-      }
+      if (!isWelcomeActive || isTerminating) return;
 
       try {
         const fallbackCtrl = new AbortController();
         const fallbackTimeout = safeTimeout(() => fallbackCtrl.abort(), 1200);
         const res2 = await fetch('https://api.ipify.org?format=json', { signal: fallbackCtrl.signal });
         clearTimeout(fallbackTimeout);
+        if (!isWelcomeActive || isTerminating) return;
         if (res2.ok) {
           const d2 = await res2.json();
           if (d2 && d2.ip) {
@@ -1607,6 +1652,7 @@
         }
       } catch (e) {}
 
+      if (!isWelcomeActive || isTerminating) return;
       if (metaIp && metaIp.innerHTML.includes('detecting')) metaIp.textContent = 'Unavailable';
       if (metaLocation && metaLocation.innerHTML.includes('locating')) metaLocation.textContent = 'Unavailable';
     }

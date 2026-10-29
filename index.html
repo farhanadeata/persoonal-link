@@ -12,19 +12,15 @@
   <meta name="author" content="Farhan (Frnyx)">
   <meta name="keywords" content="Farhan, Frnyx, Linktree, Portfolio, Web Developer, UI UX Designer, Personal Branding">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#080808">
+  <meta name="theme-color" content="#060608">
   <meta name="color-scheme" content="dark">
 
   <script>
 (function () {
       try {
         const savedTheme = localStorage.getItem('frnyx-theme') || localStorage.getItem('frnyx_theme');
-        if (savedTheme === 'light' || savedTheme === 'dark') {
-          document.documentElement.setAttribute('data-theme', savedTheme);
-        } else {
-          const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-          document.documentElement.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
-        }
+        const resolvedTheme = (savedTheme === 'light' || savedTheme === 'dark') ? savedTheme : 'dark';
+        document.documentElement.setAttribute('data-theme', resolvedTheme);
 
         if (sessionStorage.getItem('frnyx_welcome_seen') === 'true' || window.location.hash === '#projects') {
           document.documentElement.classList.add('skip-welcome-initial');
@@ -46,15 +42,9 @@
   <meta name="twitter:description" content="Personal link-in-bio &amp; portfolio showcase of Farhan (@Frnyx).">
   <meta name="twitter:image" content="assets/profile.jpeg">
 
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png"
-    onerror="this.onerror=null;this.href='assets/logo.png';">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png"
-    onerror="this.onerror=null;this.href='assets/logo.png';">
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico"
-    onerror="this.onerror=null;this.href='assets/favicon.svg';">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"
-    onerror="this.onerror=null;this.href='assets/profile.jpeg';">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/profile.jpeg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -286,7 +276,7 @@
         <div class="avatar-container" id="avatar-container">
           <div class="avatar-ring"></div>
           <div class="avatar-glow"></div>
-          <img id="profile-img" src="assets/profile.jpg" alt="Foto Profil Farhan @frnyx" class="profile-avatar"
+          <img id="profile-img" src="assets/profile.jpeg" alt="Foto Profil Farhan @frnyx" class="profile-avatar"
             width="104" height="104" loading="eager" decoding="async" />
           <div id="avatar-fallback" class="avatar-fallback hidden">
             <span>F</span>
@@ -673,3 +663,4 @@
 </body>
 
 </html>
+
