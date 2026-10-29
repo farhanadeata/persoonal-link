@@ -315,7 +315,22 @@
       }
     }
 
-    setTimeout(typeStep, initialDelay);
+    const welcomeEl = document.getElementById('welcome-screen');
+    const isWelcomeShowing = welcomeEl && !welcomeEl.classList.contains('hidden') && !document.documentElement.classList.contains('skip-welcome-initial');
+
+    if (isWelcomeShowing) {
+      let started = false;
+      const startTypingWhenReady = () => {
+        if (!started) {
+          started = true;
+          setTimeout(typeStep, initialDelay);
+        }
+      };
+      window.addEventListener('frnyx_welcome_finish', startTypingWhenReady, { once: true });
+      setTimeout(startTypingWhenReady, 6500);
+    } else {
+      setTimeout(typeStep, initialDelay);
+    }
 
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) {
@@ -1789,10 +1804,10 @@
       }
 
       if (isImmediate) {
-
         welcomeEl.classList.add('hidden');
         document.body.style.overflow = '';
         if (profileCard) profileCard.classList.add('page-revealed');
+        window.dispatchEvent(new CustomEvent('frnyx_welcome_finish'));
         return;
       }
 
@@ -1815,6 +1830,7 @@
       safeTimeout(() => {
         welcomeEl.classList.add('hidden');
         document.body.style.overflow = '';
+        window.dispatchEvent(new CustomEvent('frnyx_welcome_finish'));
       }, 650);
     }
 

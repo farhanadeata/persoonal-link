@@ -236,7 +236,6 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   background-repeat: no-repeat;
   will-change: transform;
   transform: translate3d(calc(var(--mouse-x, 0px) * 0.02), calc(var(--mouse-y, 0px) * 0.02 - var(--scroll-y, 0px) * 0.08), 0);
-  transition: transform 0.22s cubic-bezier(0.1, 1, 0.1, 1);
 }
 
 .cinematic-bg-overlay {
@@ -3859,6 +3858,13 @@ html.skip-welcome-initial #welcome-screen {
   display: none !important;
 }
 
+html.skip-welcome-initial .page-wrapper {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
 .welcome-screen {
   position: fixed;
   inset: 0;
@@ -3871,6 +3877,7 @@ html.skip-welcome-initial #welcome-screen {
   contain: paint;
   overflow-x: hidden;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   flex-direction: column;
   align-items: center;
