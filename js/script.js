@@ -1,4 +1,4 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   if (window.__FRNYX_INITIALIZED__) return;
   window.__FRNYX_INITIALIZED__ = true;
 
@@ -1730,7 +1730,7 @@
 
       const cursorEl = document.createElement('span');
       cursorEl.className = 'terminal-cursor';
-      cursorEl.textContent = '█';
+      cursorEl.textContent = '';
 
       lineEl.appendChild(promptEl);
       lineEl.appendChild(cmdEl);

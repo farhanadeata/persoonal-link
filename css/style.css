@@ -1,4 +1,4 @@
-﻿:root, [data-theme="dark"] {
+:root, [data-theme="dark"] {
 
   --bg-primary: #060608;
   --bg-surface: #0e0e12;
@@ -3874,7 +3874,6 @@ html.skip-welcome-initial .page-wrapper {
   z-index: 99999;
   background-color: #06070a !important;
   color-scheme: dark !important;
-  contain: paint;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -3883,8 +3882,6 @@ html.skip-welcome-initial .page-wrapper {
   align-items: center;
   justify-content: center;
   padding: 24px 16px;
-  perspective: 1200px;
-  transform-style: preserve-3d;
   opacity: 1;
   visibility: visible;
   transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.55s;
@@ -3892,7 +3889,7 @@ html.skip-welcome-initial .page-wrapper {
 
 .welcome-screen.exiting {
   opacity: 0;
-  transform: perspective(1200px) scale(1.04) translateZ(40px);
+  transform: scale(1.04) translateZ(40px);
   pointer-events: none;
   visibility: hidden;
 }
@@ -3906,6 +3903,7 @@ html.skip-welcome-initial .page-wrapper {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
+  perspective: 800px;
   transform-style: preserve-3d;
   z-index: 1;
 }
@@ -4183,7 +4181,6 @@ html.skip-welcome-initial .page-wrapper {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transform-style: preserve-3d;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   margin: auto;
 }
@@ -4212,8 +4209,10 @@ html.skip-welcome-initial .page-wrapper {
   letter-spacing: 0.22em;
   background: linear-gradient(135deg, #FFFFFF 20%, #72E6E0 65%, #C084FC 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 25px rgba(114, 230, 224, 0.35);
+  color: transparent;
+  filter: drop-shadow(0 0 16px rgba(114, 230, 224, 0.35));
   line-height: 1.1;
   display: inline-block;
 }
@@ -4278,15 +4277,14 @@ html.skip-welcome-initial .page-wrapper {
   position: relative;
   width: 100%;
   border-radius: 16px;
-  background: rgba(10, 12, 18, 0.80);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  background: rgba(10, 12, 18, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
     0 24px 55px -10px rgba(0, 0, 0, 0.75),
     0 0 35px -5px rgba(114, 230, 224, 0.18),
     inset 0 1px 1px rgba(255, 255, 255, 0.2);
-  transform-style: preserve-3d;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   overflow: hidden;
 }
@@ -4449,11 +4447,13 @@ html.skip-welcome-initial .page-wrapper {
 
 .terminal-cursor {
   display: inline-block;
-  width: 8px;
-  height: 1em;
+  width: 7px;
+  height: 1.1em;
   background-color: #72E6E0;
-  vertical-align: text-bottom;
-  margin-left: 2px;
+  box-shadow: 0 0 8px #72E6E0;
+  vertical-align: -2px;
+  margin-left: 3px;
+  border-radius: 1px;
   animation: termCursorBlink 0.75s infinite;
 }
 
@@ -4670,6 +4670,9 @@ html.skip-welcome-initial .page-wrapper {
 
   .welcome-terminal-card {
     border-radius: 14px;
+    background: rgba(10, 12, 18, 0.94);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 
   .terminal-console-body {
