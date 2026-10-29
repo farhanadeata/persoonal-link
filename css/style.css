@@ -907,16 +907,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .link-card-wrapper {
   position: relative;
   width: 100%;
-  perspective: 1000px;
   opacity: 0;
-  transform: perspective(1000px) translateY(24px) scale(0.96) rotateX(8deg);
-  animation: cardEntrance3D 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(18px) scale(0.98);
+  animation: cardEntrance3D 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes cardEntrance3D {
   to {
     opacity: 1;
-    transform: perspective(1000px) translateY(0) scale(1) rotateX(0deg);
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -935,13 +934,11 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--color-pill-text);
   padding: 8px 12px 8px 12px;
   box-shadow: var(--card-shadow);
-  transform-style: preserve-3d;
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
-  will-change: transform, box-shadow;
 }
 
 .link-card::before {
@@ -961,10 +958,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   pointer-events: none;
   background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 65%);
   opacity: 0;
-  mix-blend-mode: overlay;
   transition: opacity 0.2s ease;
   z-index: 2;
-  will-change: transform, opacity;
 }
 
 .card-border-highlight {
@@ -997,7 +992,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 .card-shimmer {
   position: absolute;
   top: -50%;
-  left: -100%;
+  left: 0;
   width: 60%;
   height: 200%;
   background: linear-gradient(
@@ -1006,9 +1001,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
     rgba(255, 255, 255, 0.08) 50%,
     transparent 100%
   );
-  transform: rotate(25deg);
+  transform: translateX(-200%) rotate(25deg);
   pointer-events: none;
   z-index: 2;
+  will-change: transform;
   animation: cardShimmerSweep 9s infinite ease-in-out;
 }
 
@@ -1023,10 +1019,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
 
 @keyframes cardShimmerSweep {
   0%, 65% {
-    left: -100%;
+    transform: translateX(-200%) rotate(25deg);
   }
   100% {
-    left: 200%;
+    transform: translateX(350%) rotate(25deg);
   }
 }
 
@@ -1736,18 +1732,20 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s ease;
 }
 
-.link-card:hover .card-title {
-  background: linear-gradient(135deg, #FFFFFF 15%, #72E6E0 75%, #C084FC 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transform: translateX(3px);
-}
+@media (hover: hover) and (pointer: fine) {
+  .link-card:hover .card-title {
+    background: linear-gradient(135deg, #FFFFFF 15%, #72E6E0 75%, #C084FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateX(3px);
+  }
 
-[data-theme="light"] .link-card:hover .card-title {
-  background: linear-gradient(135deg, #0D0D11 15%, #0E9B94 75%, #6366F1 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transform: translateX(3px);
+  [data-theme="light"] .link-card:hover .card-title {
+    background: linear-gradient(135deg, #0D0D11 15%, #0E9B94 75%, #6366F1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateX(3px);
+  }
 }
 
 .card-badge {
@@ -4727,6 +4725,23 @@ html.skip-welcome-initial .background-container {
 
   .profile-username {
     animation: none !important;
+  }
+
+  .link-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    transform-style: flat !important;
+    will-change: auto !important;
+  }
+
+  .link-card-wrapper {
+    perspective: none !important;
+    transform: none !important;
+  }
+
+  .card-glare,
+  .card-shimmer {
+    display: none !important;
   }
 }
 
