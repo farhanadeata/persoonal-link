@@ -201,6 +201,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    const f = config.footer || {};
+    const footerEl = document.getElementById('footer-copyright');
+    if (footerEl && (f.copyright || f.text)) {
+      footerEl.textContent = f.copyright || f.text;
+    }
+
     const avatarSrc = p.image || p.avatar || 'assets/profile.jpg';
     if (imgEl && fallbackEl) {
       imgEl.src = avatarSrc;

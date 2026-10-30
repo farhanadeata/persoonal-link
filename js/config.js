@@ -1,4 +1,4 @@
-﻿const SITE_CONFIG = {
+const SITE_CONFIG = {
 
   profile: {
     username: "@frnyx",
@@ -334,8 +334,7 @@
   },
 
   footer: {
-    copyright: "© 2026 Frnyx",
-    note: "Crafted with care & precision"
+    copyright: "Created by FRNYX"
   }
 };
 
