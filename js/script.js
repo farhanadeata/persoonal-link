@@ -538,9 +538,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const links = (config.links || []).filter(item => item.enabled !== false);
     const staggerDelay = animConfig.staggerDelayMs || 85;
-    const enableCard3D = animConfig.enableCard3D !== false && !isTouchDevice;
+    const isDesktopPointer = !isTouchDevice && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1025px)').matches;
+    const enableCard3D = animConfig.enableCard3D !== false && isDesktopPointer;
     const cardTiltMax = animConfig.cardTiltMax || 4.5;
-    const enableGlare = animConfig.enableCardGlare !== false && !isTouchDevice;
+    const enableGlare = animConfig.enableCardGlare !== false && isDesktopPointer;
     const glareOpacity = animConfig.cardGlareOpacity || 0.20;
 
     links.forEach((item, index) => {
@@ -1772,7 +1773,8 @@ document.addEventListener('DOMContentLoaded', () => {
     safeTimeout(typeNextLine, 260);
 
     const stageEl = document.getElementById('welcome-stage');
-    if (!isTouchDevice && stageEl) {
+    const isDesktopPointer = !isTouchDevice && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 1025px)').matches;
+    if (isDesktopPointer && stageEl) {
       welcomeEl.addEventListener('mousemove', (e) => {
         if (!isWelcomeActive || isTerminating) return;
         const rect = welcomeEl.getBoundingClientRect();
