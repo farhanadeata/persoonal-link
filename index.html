@@ -51,7 +51,7 @@
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=20261101-01">
+  <link rel="stylesheet" href="css/style.css?v=20261101-04">
 </head>
 
 <body>
@@ -250,10 +250,11 @@
         </span>
       </button>
 
-      <div class="nav-center-pill">
-        <span class="live-status-dot"></span>
+      <button type="button" id="btn-command-palette" class="nav-center-pill" aria-label="Buka Command Palette (Ctrl + K)" title="Command Palette (Ctrl + K)">
+        <span class="live-status-dot" aria-hidden="true"></span>
         <span id="nav-status-text">frnyx.dev</span>
-      </div>
+        <span class="cmd-k-badge" aria-hidden="true"><kbd>⌘K</kbd></span>
+      </button>
 
       <button id="btn-share-page" class="nav-action-btn" type="button" aria-label="Bagikan Halaman Ini"
         title="Bagikan Halaman">
@@ -640,6 +641,59 @@
     </div>
   </div>
 
+  <div id="command-palette-modal" class="cmd-palette-backdrop hidden" role="dialog" aria-modal="true" aria-label="Command Palette FRNYX OS">
+    <div class="cmd-palette-card" id="cmd-palette-card">
+      <div class="cmd-palette-header">
+        <div class="cmd-palette-input-wrap">
+          <span class="cmd-palette-search-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input type="text" id="cmd-palette-input" class="cmd-palette-input" placeholder="Ketik perintah atau cari link... (e.g. ulasin, project, theme)" autocomplete="off" spellcheck="false" aria-autocomplete="list" aria-controls="cmd-palette-results" />
+          <button type="button" id="cmd-palette-close" class="cmd-palette-close-btn" aria-label="Tutup Command Palette (Esc)" title="Tutup (Esc)">
+            <kbd>ESC</kbd>
+          </button>
+        </div>
+      </div>
+
+      <div class="cmd-terminal-console" id="cmd-terminal-console">
+        <div class="cmd-terminal-header">
+          <div class="cmd-term-controls">
+            <span class="cmd-term-dot red"></span>
+            <span class="cmd-term-dot yellow"></span>
+            <span class="cmd-term-dot green"></span>
+          </div>
+          <span class="cmd-term-title">bash // frnyx@os: ~/projects</span>
+          <span class="cmd-term-status" id="cmd-term-status">IDLE</span>
+        </div>
+        <div class="cmd-terminal-body">
+          <div class="cmd-term-line prompt">
+            <span class="cmd-term-prompt-user">frnyx@dev</span>:<span class="cmd-term-prompt-path">~/system</span>$&nbsp;<span class="cmd-term-command" id="cmd-term-command">scan /sys/projects --all</span><span class="cmd-term-cursor"></span>
+          </div>
+          <div class="cmd-term-stream" id="cmd-term-stream"></div>
+          <div class="cmd-term-progress hidden" id="cmd-term-progress">
+            <div class="cmd-term-progress-bar" id="cmd-term-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cmd-palette-body" id="cmd-palette-body">
+        <div id="cmd-palette-results" class="cmd-palette-results" role="listbox"></div>
+      </div>
+
+      <div class="cmd-palette-footer">
+        <div class="cmd-footer-hints">
+          <span class="cmd-hint-item"><kbd>&uarr;&darr;</kbd> Navigasi</span>
+          <span class="cmd-hint-item"><kbd>&crarr;</kbd> Pilih</span>
+          <span class="cmd-hint-item"><kbd>ESC</kbd> Tutup</span>
+        </div>
+        <div class="cmd-footer-brand">FRNYX OS // DEV_TERMINAL</div>
+      </div>
+    </div>
+  </div>
+
   <div id="toast" class="toast-container hidden" role="status" aria-live="polite">
     <div class="toast-card">
       <div class="toast-icon">
@@ -652,10 +706,10 @@
     </div>
   </div>
 
-  <script src="js/config.js?v=20261101-01">
+  <script src="js/config.js?v=20261101-04">
 
   </script>
-  <script src="js/script.js?v=20261101-01">
+  <script src="js/script.js?v=20261101-04">
 
   </script>
 </body>

@@ -27,7 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
     arrowLeft: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`,
     eye: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
     star: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
-    qrcode: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="5.5" y="5.5" width="2" height="2" fill="currentColor"></rect><rect x="16.5" y="5.5" width="2" height="2" fill="currentColor"></rect><rect x="5.5" y="16.5" width="2" height="2" fill="currentColor"></rect><path d="M18 13l1 2.2 2.4.3-1.8 1.7.5 2.4-2.1-1.2-2.1 1.2.5-2.4-1.8-1.7 2.4-.3z" fill="#FBBC05" stroke="#FBBC05" stroke-width="1"></path></svg>`
+    qrcode: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="5.5" y="5.5" width="2" height="2" fill="currentColor"></rect><rect x="16.5" y="5.5" width="2" height="2" fill="currentColor"></rect><rect x="5.5" y="16.5" width="2" height="2" fill="currentColor"></rect><path d="M18 13l1 2.2 2.4.3-1.8 1.7.5 2.4-2.1-1.2-2.1 1.2.5-2.4-1.8-1.7 2.4-.3z" fill="#FBBC05" stroke="#FBBC05" stroke-width="1"></path></svg>`,
+    moon: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`,
+    share: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>`,
+    copy: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`,
+    terminal: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`,
+    briefcase: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
+    coffee: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>`,
+    send: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`
   };
 
   function getIconSvg(iconName) {
@@ -581,7 +588,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     links.forEach((item, index) => {
       const cardWrapper = document.createElement('div');
-      cardWrapper.className = 'link-card-wrapper';
+      cardWrapper.className = `link-card-wrapper wrapper-${item.id || index}`;
+      cardWrapper.setAttribute('data-id', item.id || `link-${index}`);
       cardWrapper.style.animationDelay = `${0.25 + index * (staggerDelay / 1000)}s`;
 
       const card = document.createElement('a');
@@ -1388,7 +1396,890 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  const cmdPaletteModal = document.getElementById('command-palette-modal');
+  const cmdPaletteInput = document.getElementById('cmd-palette-input');
+  const cmdPaletteResults = document.getElementById('cmd-palette-results');
+  const cmdPaletteCloseBtn = document.getElementById('cmd-palette-close');
+  const btnCommandPalette = document.getElementById('btn-command-palette');
+  const cmdTermStatus = document.getElementById('cmd-term-status');
+  const cmdTermCommand = document.getElementById('cmd-term-command');
+  const cmdTermStream = document.getElementById('cmd-term-stream');
+  const cmdTermProgress = document.getElementById('cmd-term-progress');
+  const cmdTermProgressBar = document.getElementById('cmd-term-progress-bar');
+
+  let activeCmdIndex = 0;
+  let currentFilteredCommands = [];
+  let isExecutingCmd = false;
+
+  function setTerminalState(statusText, statusClass, commandText, streamLines) {
+    if (cmdTermStatus) {
+      cmdTermStatus.textContent = statusText;
+      cmdTermStatus.className = `cmd-term-status ${statusClass || ''}`;
+    }
+    if (cmdTermCommand && commandText !== undefined) {
+      cmdTermCommand.textContent = commandText;
+    }
+    if (cmdTermStream && Array.isArray(streamLines)) {
+      cmdTermStream.innerHTML = streamLines.map(line => `
+        <div class="cmd-term-row">
+          <span class="cmd-log-tag ${line.tag}">${line.label || line.tag.toUpperCase()}</span>
+          <span class="cmd-log-text">${line.text}</span>
+        </div>
+      `).join('');
+    }
+  }
+
+  function getCommandsRegistry() {
+    const list = [];
+
+    list.push({
+      id: 'cmd-farhan-dev',
+      title: 'farhan dev // Download Kartu Nama Digital (PDF)',
+      desc: 'Unduh kartu nama eksekutif Farhan Ade Atalarik (Dark Liquid Glass 300 DPI / vCard)',
+      category: 'Identitas & Profil',
+      badge: 'Executive PDF',
+      shortcut: 'PDF',
+      icon: 'terminal',
+      action: () => {
+        triggerFarhanDevDownload();
+      }
+    });
+
+    (config.links || []).filter(l => l.enabled !== false).forEach(item => {
+      list.push({
+        id: `link-${item.id}`,
+        title: item.title,
+        desc: item.description || '',
+        category: 'Tautan & Proyek',
+        badge: item.badge || '',
+        icon: item.icon || 'globe',
+        action: () => {
+          if (item.type === 'gallery' || item.id === 'projects') {
+            openProjectsGallery();
+          } else if (item.type === 'qris' || item.id === 'qris') {
+            openModal('modal-qris');
+          } else if (item.type === 'email' || item.id === 'order') {
+            openModal('modal-contact');
+          } else if (item.url && item.url !== '#') {
+            window.open(item.url, item.external ? '_blank' : '_self');
+          }
+        }
+      });
+    });
+
+    (config.projects || []).forEach(p => {
+      list.push({
+        id: `project-${p.id}`,
+        title: `Proyek: ${p.title}`,
+        desc: p.summary || '',
+        category: 'Studi Kasus Proyek',
+        badge: p.status || '',
+        icon: 'code',
+        action: () => {
+          openProjectDetailModal(p.id);
+        }
+      });
+    });
+
+    list.push({
+      id: 'sys-theme',
+      title: 'Ganti Mode Tema (Dark / Light)',
+      desc: 'Beralih antara tema gelap elegan dan tema terang bersih',
+      category: 'Sistem FRNYX OS',
+      badge: '',
+      shortcut: 'T',
+      icon: 'moon',
+      action: () => {
+        const themeBtn = document.getElementById('theme-toggle');
+        if (themeBtn) themeBtn.click();
+      }
+    });
+
+    list.push({
+      id: 'sys-share',
+      title: 'Bagikan Profil FRNYX',
+      desc: 'Buka modal opsi berbagi profil website',
+      category: 'Sistem FRNYX OS',
+      badge: '',
+      shortcut: 'S',
+      icon: 'share',
+      action: () => {
+        openModal('modal-share');
+      }
+    });
+
+    list.push({
+      id: 'sys-copy',
+      title: 'Salin Tautan Website',
+      desc: 'Salin URL https://frnyx.vercel.app/ ke clipboard',
+      category: 'Sistem FRNYX OS',
+      badge: '',
+      shortcut: 'C',
+      icon: 'copy',
+      action: () => {
+        fallbackCopyText(window.location.href);
+        showToast('URL profil berhasil disalin!');
+      }
+    });
+
+    list.push({
+      id: 'sys-replay',
+      title: 'Jalankan Ulang Intro Sambutan',
+      desc: 'Putar kembali layar welcome terminal FRNYX OS',
+      category: 'Sistem FRNYX OS',
+      badge: '',
+      shortcut: 'R',
+      icon: 'terminal',
+      action: () => {
+        try {
+          sessionStorage.removeItem('frnyx_welcome_seen');
+        } catch(e) {}
+        window.location.reload();
+      }
+    });
+
+    (config.socials || []).filter(s => s && s.enabled !== false).forEach(s => {
+      const platformName = s.name || (s.id ? s.id.charAt(0).toUpperCase() + s.id.slice(1) : 'Sosial');
+      list.push({
+        id: `social-${s.id || platformName.toLowerCase()}`,
+        title: `Buka ${platformName}`,
+        desc: s.url || '',
+        category: 'Media Sosial & Kontak',
+        badge: '',
+        icon: s.icon || s.id || 'globe',
+        action: () => {
+          if (s.url) window.open(s.url, '_blank', 'noopener,noreferrer');
+        }
+      });
+    });
+
+    return list;
+  }
+
+  function openCommandPalette() {
+    if (!cmdPaletteModal) return;
+    isExecutingCmd = false;
+    cmdPaletteModal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (cmdTermProgress) cmdTermProgress.classList.add('hidden');
+    if (cmdTermProgressBar) cmdTermProgressBar.style.width = '0%';
+    if (cmdPaletteInput) {
+      cmdPaletteInput.value = '';
+      setTimeout(() => cmdPaletteInput.focus(), 60);
+    }
+    setTerminalState('IDLE', '', 'scan /sys/projects --all', [
+      { tag: 'ok', label: 'READY', text: 'FRNYX OS kernel v2.0 initialized. Filesystem mounted.' },
+      { tag: 'dir', label: 'PATH', text: '/projects/ (7 items) &bull; /links/ (5 items) loaded' }
+    ]);
+    renderCommandResults('');
+  }
+
+  function closeCommandPalette() {
+    if (!cmdPaletteModal) return;
+    isExecutingCmd = false;
+    cmdPaletteModal.classList.add('hidden');
+    if (cmdTermProgress) cmdTermProgress.classList.add('hidden');
+    if (cmdTermProgressBar) cmdTermProgressBar.style.width = '0%';
+    const remainingOpenModals = document.querySelectorAll('.custom-modal-backdrop:not(.hidden)');
+    if (remainingOpenModals.length === 0) {
+      document.body.style.overflow = '';
+    }
+  }
+
+  function renderCommandResults(query) {
+    if (!cmdPaletteResults) return;
+    cmdPaletteResults.innerHTML = '';
+    const all = getCommandsRegistry();
+    const q = (query || '').toLowerCase().trim();
+
+    currentFilteredCommands = q ? all.filter(c => {
+      return (c.title && c.title.toLowerCase().includes(q)) ||
+        (c.desc && c.desc.toLowerCase().includes(q)) ||
+        (c.category && c.category.toLowerCase().includes(q));
+    }) : all;
+
+    if (!q) {
+      setTerminalState('IDLE', '', 'scan /sys/projects --all', [
+        { tag: 'ok', label: 'READY', text: 'FRNYX OS kernel v2.0 ready. Filesystem mounted.' },
+        { tag: 'dir', label: 'PATH', text: '/projects/ (7 items) &bull; /links/ (5 items) loaded' }
+      ]);
+    } else if (q.includes('farhan') || q.includes('dev') || q.includes('kartu') || q.includes('vcard') || q.includes('pdf')) {
+      setTerminalState('VCARD [PDF]', 'active', 'cat /sys/identities/farhan-ade-atalarik.vcard', [
+        { tag: 'scan', label: 'ID', text: 'Farhan Ade Atalarik (@frnyx) &bull; Fullstack & IoT Developer' },
+        { tag: 'dir', label: 'EXEC', text: 'target binary: <strong>./build-pdf-vcard.sh</strong>' },
+        { tag: 'ok', label: 'READY', text: 'Tekan <kbd>&crarr; Enter</kbd> untuk kompilasi & unduh kartu nama (PDF)' }
+      ]);
+    } else if (q.includes('ulasin')) {
+      setTerminalState('FOUND [2]', 'active', 'cd /sys/projects/ulasin/ && ls -la', [
+        { tag: 'scan', label: 'SCAN', text: 'indexing /sys/projects/web-development/ ...' },
+        { tag: 'dir', label: 'MOUNT', text: 'opening <strong>/projects/ulasin/</strong> (QR Code Generator)' },
+        { tag: 'ok', label: 'MATCH', text: '2 endpoints loaded &bull; Tekan <kbd>&crarr; Enter</kbd> untuk eksekusi' }
+      ]);
+    } else if (currentFilteredCommands.length > 0) {
+      const top = currentFilteredCommands[0];
+      setTerminalState(`FOUND [${currentFilteredCommands.length}]`, 'active', `find /sys -name "*${q}*"`, [
+        { tag: 'scan', label: 'SEARCH', text: `grep -ri "${q}" /sys/registry ...` },
+        { tag: 'dir', label: 'PATH', text: `target: <strong>${top.title}</strong> (${top.category})` },
+        { tag: 'ok', label: 'MATCH', text: `${currentFilteredCommands.length} records ready &bull; Tekan <kbd>&crarr; Enter</kbd> untuk buka` }
+      ]);
+    } else {
+      setTerminalState('NOT FOUND', '', `grep -ri "${q}" /sys/`, [
+        { tag: 'scan', label: 'SEARCH', text: `scanning filesystem for "${q}" ...` },
+        { tag: 'err', label: '404', text: `Tidak ada direktori atau file cocok dengan "<strong>${query}</strong>"` }
+      ]);
+    }
+
+    if (currentFilteredCommands.length === 0) {
+      cmdPaletteResults.innerHTML = `
+        <div class="cmd-empty-state">
+          <span class="cmd-empty-icon">&#128269;</span>
+          <span>Tidak ada perintah yang cocok dengan "<strong>${query}</strong>"</span>
+          <span style="font-size: 0.74rem; opacity: 0.7;">Coba ketik 'ulasin', 'project', atau 'theme'</span>
+        </div>
+      `;
+      activeCmdIndex = -1;
+      return;
+    }
+
+    activeCmdIndex = 0;
+
+    let currentCat = '';
+    currentFilteredCommands.forEach((cmd, idx) => {
+      if (!q && cmd.category !== currentCat) {
+        currentCat = cmd.category;
+        const groupEl = document.createElement('div');
+        groupEl.className = 'cmd-group-title';
+        groupEl.textContent = currentCat;
+        cmdPaletteResults.appendChild(groupEl);
+      }
+
+      const itemEl = document.createElement('div');
+      itemEl.className = `cmd-item ${idx === 0 ? 'active' : ''}`;
+      itemEl.setAttribute('role', 'option');
+      itemEl.setAttribute('data-index', idx);
+
+      const badgeHtml = cmd.badge ? `<span class="cmd-item-badge">${cmd.badge}</span>` : '';
+      const shortcutHtml = cmd.shortcut ? `<span class="cmd-item-shortcut"><kbd>${cmd.shortcut}</kbd></span>` : '';
+
+      itemEl.innerHTML = `
+        <div class="cmd-item-left">
+          <div class="cmd-item-icon">
+            ${getIconSvg(cmd.icon) || '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>'}
+          </div>
+          <div class="cmd-item-text">
+            <span class="cmd-item-title">${cmd.title}</span>
+            <span class="cmd-item-desc">${cmd.desc}</span>
+          </div>
+        </div>
+        <div class="cmd-item-right">
+          ${badgeHtml}
+          ${shortcutHtml}
+        </div>
+      `;
+
+      itemEl.addEventListener('mouseenter', () => {
+        setCmdActiveIndex(idx);
+      });
+
+      itemEl.addEventListener('click', () => {
+        executeCommand(idx);
+      });
+
+      cmdPaletteResults.appendChild(itemEl);
+    });
+  }
+
+  function setCmdActiveIndex(newIdx) {
+    if (!cmdPaletteResults || currentFilteredCommands.length === 0) return;
+    const items = cmdPaletteResults.querySelectorAll('.cmd-item');
+    if (items.length === 0) return;
+
+    items.forEach(el => el.classList.remove('active'));
+
+    activeCmdIndex = (newIdx + currentFilteredCommands.length) % currentFilteredCommands.length;
+    const targetItem = cmdPaletteResults.querySelector(`.cmd-item[data-index="${activeCmdIndex}"]`);
+    if (targetItem) {
+      targetItem.classList.add('active');
+      targetItem.scrollIntoView({ block: 'nearest' });
+    }
+
+    const cur = currentFilteredCommands[activeCmdIndex];
+    if (cur && !isExecutingCmd) {
+      if (cur.id === 'cmd-farhan-dev') {
+        setTerminalState('VCARD [PDF]', 'active', 'sh ./build-pdf-vcard.sh --compile', [
+          { tag: 'dir', label: 'TARGET', text: '<strong>Farhan Ade Atalarik</strong> (Dark Liquid Glass ID Card)' },
+          { tag: 'ok', label: 'ACTION', text: 'Tekan Enter untuk kompilasi & unduh kartu nama digital (PDF)' }
+        ]);
+      } else if ((cur.id || '').includes('ulasin')) {
+        setTerminalState('READY', 'active', `cd /projects/ulasin/ && exec ./open.sh`, [
+          { tag: 'dir', label: 'DIR', text: 'target directory: <strong>/var/projects/ulasin/</strong>' },
+          { tag: 'ok', label: 'TARGET', text: `${cur.title} &bull; ${cur.desc}` }
+        ]);
+      } else {
+        setTerminalState('READY', 'active', `exec ./${cur.id}.sh`, [
+          { tag: 'dir', label: 'TARGET', text: `<strong>${cur.title}</strong> [${cur.category}]` },
+          { tag: 'ok', label: 'ACTION', text: cur.desc || 'Tekan Enter untuk membuka' }
+        ]);
+      }
+    }
+  }
+
+  function executeCommand(idx) {
+    if (isExecutingCmd) return;
+    if (idx === undefined || idx === null || idx < 0) {
+      idx = activeCmdIndex >= 0 ? activeCmdIndex : 0;
+    }
+    const cmd = currentFilteredCommands[idx];
+    if (!cmd) return;
+
+    if (cmd.id === 'cmd-farhan-dev') {
+      triggerFarhanDevDownload();
+      return;
+    }
+
+    isExecutingCmd = true;
+
+    if (cmdTermProgress) cmdTermProgress.classList.remove('hidden');
+    if (cmdTermProgressBar) {
+      cmdTermProgressBar.style.width = '0%';
+      setTimeout(() => {
+        if (cmdTermProgressBar) cmdTermProgressBar.style.width = '100%';
+      }, 20);
+    }
+
+    const isUlasin = (cmd.id || '').includes('ulasin');
+    if (isUlasin) {
+      setTerminalState('EXECUTING', 'executing', `sh ./launch.sh --target="ulasin" --open-browser`, [
+        { tag: 'exec', label: 'EXEC', text: 'mounting /sys/projects/ulasin/ ... [DONE]' },
+        { tag: 'scan', label: 'SOCKET', text: 'handshake https://ulasin-seven.vercel.app/ ... 200 OK' },
+        { tag: 'ok', label: 'DISPATCH', text: 'Membuka aplikasi ULASIN di tab baru...' }
+      ]);
+    } else {
+      setTerminalState('EXECUTING', 'executing', `sh ./launch.sh --target="${cmd.id}"`, [
+        { tag: 'exec', label: 'EXEC', text: `dispatching binary for <strong>${cmd.title}</strong> ...` },
+        { tag: 'ok', label: 'DISPATCH', text: 'Proses selesai dengan status 200 OK. Membuka tujuan...' }
+      ]);
+    }
+
+    setTimeout(() => {
+      closeCommandPalette();
+      isExecutingCmd = false;
+      if (cmdTermProgress) cmdTermProgress.classList.add('hidden');
+      if (typeof cmd.action === 'function') {
+        try {
+          cmd.action();
+        } catch (err) {}
+      }
+    }, 380);
+  }
+
+  function drawRoundRect(ctx, x, y, width, height, r) {
+    if (width < 2 * r) r = width / 2;
+    if (height < 2 * r) r = height / 2;
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + width, y, x + width, y + height, r);
+    ctx.arcTo(x + width, y + height, x, y + height, r);
+    ctx.arcTo(x, y + height, x, y, r);
+    ctx.arcTo(x, y, x + width, y, r);
+    ctx.closePath();
+  }
+
+  function drawRealisticQr(ctx, x, y, size) {
+    const matrix = [
+      [1,1,1,1,1,1,1,0,1,0,1,1,0,0,1,0,1,1,1,1,1,1,1],
+      [1,0,0,0,0,0,1,0,0,1,0,1,1,0,1,0,1,0,0,0,0,0,1],
+      [1,0,1,1,1,0,1,0,1,1,0,0,1,1,0,0,1,0,1,1,1,0,1],
+      [1,0,1,1,1,0,1,0,0,0,1,0,1,0,1,0,1,0,1,1,1,0,1],
+      [1,0,1,1,1,0,1,0,1,0,0,1,0,1,0,0,1,0,1,1,1,0,1],
+      [1,0,0,0,0,0,1,0,1,1,0,0,1,0,1,0,1,0,0,0,0,0,1],
+      [1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1],
+      [0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,0,0],
+      [1,1,0,1,0,1,1,1,0,0,1,0,1,1,0,1,1,0,1,0,1,1,0],
+      [0,1,1,0,1,0,0,1,1,0,1,0,0,1,1,0,0,1,0,1,0,1,1],
+      [1,0,0,1,0,1,1,0,1,1,1,1,1,0,1,1,0,0,1,1,0,0,1],
+      [0,1,1,0,1,1,0,1,0,1,0,0,0,1,0,1,1,0,1,0,1,1,0],
+      [1,0,1,0,0,1,1,0,1,1,0,1,1,0,1,1,0,1,0,1,0,1,1],
+      [0,1,0,1,1,0,1,1,0,1,1,0,1,0,0,1,1,0,1,1,0,1,0],
+      [1,1,0,0,1,1,0,1,1,0,1,1,1,1,0,0,1,1,0,0,1,1,1],
+      [0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,1,0,1,0,1,0,0,1],
+      [1,1,1,1,1,1,1,0,1,1,0,1,0,1,0,1,1,0,1,0,1,1,0],
+      [1,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,1,1,0,0,1,0,1],
+      [1,0,1,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,1],
+      [1,0,1,1,1,0,1,0,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1],
+      [1,0,1,1,1,0,1,0,1,0,0,1,0,1,0,1,1,0,1,0,1,1,0],
+      [1,0,0,0,0,0,1,0,1,1,0,1,1,0,1,0,0,1,0,1,0,0,1],
+      [1,1,1,1,1,1,1,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,1]
+    ];
+    const n = matrix.length;
+    const mod = size / n;
+    ctx.fillStyle = '#0F172A';
+    for (let r = 0; r < n; r++) {
+      for (let c = 0; c < n; c++) {
+        if (matrix[r][c] === 1) {
+          ctx.fillRect(x + c * mod, y + r * mod, mod - 0.5, mod - 0.5);
+        }
+      }
+    }
+    const centerSize = mod * 5;
+    const centerX = x + (size - centerSize) / 2;
+    const centerY = y + (size - centerSize) / 2;
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(centerX, centerY, centerSize, centerSize);
+    ctx.fillStyle = '#72E6E0';
+    ctx.fillRect(centerX + 3, centerY + 3, centerSize - 6, centerSize - 6);
+    ctx.font = '900 13px sans-serif';
+    ctx.fillStyle = '#060810';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('FRX', centerX + centerSize / 2, centerY + centerSize / 2);
+  }
+
+  function renderMinimalistBusinessCard(ctx, w, h, photoImg) {
+    const bgGrad = ctx.createLinearGradient(0, 0, w, h);
+    bgGrad.addColorStop(0, '#06080e');
+    bgGrad.addColorStop(0.5, '#0b0f19');
+    bgGrad.addColorStop(1, '#070a12');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, w, h);
+
+    const radGrad = ctx.createRadialGradient(400, 300, 50, 400, 300, 800);
+    radGrad.addColorStop(0, 'rgba(114, 230, 224, 0.08)');
+    radGrad.addColorStop(1, 'rgba(114, 230, 224, 0)');
+    ctx.fillStyle = radGrad;
+    ctx.fillRect(0, 0, w, h);
+
+    drawRoundRect(ctx, 40, 40, w - 80, h - 80, 48);
+    ctx.strokeStyle = 'rgba(114, 230, 224, 0.32)';
+    ctx.lineWidth = 3.5;
+    ctx.stroke();
+
+    drawRoundRect(ctx, 46, 46, w - 92, h - 92, 44);
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'alphabetic';
+
+    ctx.font = '700 20px monospace';
+    ctx.fillStyle = '#72E6E0';
+    ctx.fillText('FRNYX OS // EXECUTIVE IDENTIFICATION', 120, 150);
+
+    ctx.font = '700 20px monospace';
+    ctx.fillStyle = '#27C93F';
+    ctx.fillText('● AVAILABLE FOR PROJECTS', 960, 150);
+
+    const nameGrad = ctx.createLinearGradient(120, 300, 950, 300);
+    nameGrad.addColorStop(0, '#FFFFFF');
+    nameGrad.addColorStop(0.85, '#F0FDFA');
+    nameGrad.addColorStop(1, '#A5F3FC');
+    ctx.fillStyle = nameGrad;
+    ctx.font = '900 84px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+    ctx.fillText('FARHAN ADE ATALARIK', 120, 330);
+
+    ctx.font = '700 30px monospace';
+    ctx.fillStyle = '#72E6E0';
+    ctx.fillText('FULLSTACK WEB DEVELOPER • IT SPECIALIST', 120, 400);
+
+    ctx.font = '400 26px sans-serif';
+    ctx.fillStyle = '#94A3B8';
+    ctx.fillText('“Transforming Ideas into Digital Solutions”', 120, 460);
+
+    const divGrad = ctx.createLinearGradient(120, 505, 1370, 505);
+    divGrad.addColorStop(0, 'rgba(114, 230, 224, 0.45)');
+    divGrad.addColorStop(0.8, 'rgba(114, 230, 224, 0.1)');
+    divGrad.addColorStop(1, 'transparent');
+    ctx.strokeStyle = divGrad;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(120, 505);
+    ctx.lineTo(1370, 505);
+    ctx.stroke();
+
+    const contacts = [
+      { label: 'EMAIL', val: 'nahraf270803@gmail.com' },
+      { label: 'PORTFOLIO', val: 'https://farhanadeata.github.io/' },
+      { label: 'LINKTREE', val: 'https://frnyx.vercel.app/' },
+      { label: 'GITHUB', val: 'github.com/farhanadeata' },
+      { label: 'LINKEDIN', val: 'linkedin.com/in/farhan-ade-atalarik' }
+    ];
+
+    let cY = 540;
+    const cW = 1250;
+    const cH = 74;
+
+    contacts.forEach(c => {
+      ctx.fillStyle = 'rgba(15, 20, 34, 0.65)';
+      drawRoundRect(ctx, 120, cY, cW, cH, 14);
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(114, 230, 224, 0.16)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      ctx.font = '700 20px monospace';
+      ctx.fillStyle = '#72E6E0';
+      ctx.fillText(c.label, 148, cY + 45);
+
+      ctx.font = '600 26px -apple-system, sans-serif';
+      ctx.fillStyle = '#F8FAFC';
+      ctx.fillText(c.val, 330, cY + 46);
+
+      cY += cH + 16;
+    });
+
+    const fX = 1480;
+    const fY = 150;
+    const fW = 500;
+    const fH = 620;
+
+    ctx.save();
+    drawRoundRect(ctx, fX, fY, fW, fH, 32);
+    ctx.clip();
+
+    if (photoImg) {
+      const imgW = photoImg.width;
+      const imgH = photoImg.height;
+      const frameRatio = fW / fH;
+      const imgRatio = imgW / imgH;
+      let sW, sH, sX, sY;
+
+      if (imgRatio > frameRatio) {
+        sH = imgH;
+        sW = imgH * frameRatio;
+        sX = (imgW - sW) / 2;
+        sY = 0;
+      } else {
+        sW = imgW;
+        sH = imgW / frameRatio;
+        sX = 0;
+        sY = 0;
+      }
+
+      ctx.drawImage(photoImg, sX, sY, sW, sH, fX, fY, fW, fH);
+
+      const photoGrad = ctx.createLinearGradient(fX, fY + fH - 180, fX, fY + fH);
+      photoGrad.addColorStop(0, 'transparent');
+      photoGrad.addColorStop(1, 'rgba(6, 8, 14, 0.92)');
+      ctx.fillStyle = photoGrad;
+      ctx.fillRect(fX, fY + fH - 180, fW, 180);
+    } else {
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(fX, fY, fW, fH);
+    }
+    ctx.restore();
+
+    drawRoundRect(ctx, fX, fY, fW, fH, 32);
+    ctx.strokeStyle = 'rgba(114, 230, 224, 0.45)';
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    ctx.font = '800 32px sans-serif';
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText('@frnyx', fX + 30, fY + fH - 35);
+
+    ctx.beginPath();
+    ctx.arc(fX + 160, fY + fH - 46, 14, 0, Math.PI * 2);
+    ctx.fillStyle = '#72E6E0';
+    ctx.fill();
+    ctx.strokeStyle = '#FFFFFF';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    ctx.moveTo(fX + 154, fY + fH - 46);
+    ctx.lineTo(fX + 158, fY + fH - 42);
+    ctx.lineTo(fX + 167, fY + fH - 51);
+    ctx.stroke();
+
+    const qrBoxY = 800;
+    const qrBoxH = 250;
+
+    ctx.fillStyle = 'rgba(14, 18, 30, 0.85)';
+    drawRoundRect(ctx, fX, qrBoxY, fW, qrBoxH, 24);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(114, 230, 224, 0.35)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    const qrX = fX + 28;
+    const qrY = qrBoxY + 30;
+    const qrS = 190;
+
+    ctx.fillStyle = '#FFFFFF';
+    drawRoundRect(ctx, qrX, qrY, qrS, qrS, 14);
+    ctx.fill();
+
+    drawRealisticQr(ctx, qrX + 12, qrY + 12, qrS - 24);
+
+    const txtX = fX + 242;
+    ctx.textAlign = 'left';
+    ctx.font = '700 20px monospace';
+    ctx.fillStyle = '#72E6E0';
+    ctx.fillText('SCAN TO CONNECT', txtX, qrBoxY + 68);
+
+    ctx.font = '500 17px -apple-system, sans-serif';
+    ctx.fillStyle = '#94A3B8';
+    ctx.fillText('Digital Portfolio & Hub', txtX, qrBoxY + 102);
+
+    ctx.font = '700 18px monospace';
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillText('farhanadeata.github.io', txtX, qrBoxY + 144);
+
+    ctx.font = '600 16px monospace';
+    ctx.fillStyle = '#27C93F';
+    ctx.fillText('● SSL VERIFIED URL', txtX, qrBoxY + 182);
+
+    const footY = h - 65;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(120, footY - 30);
+    ctx.lineTo(w - 120, footY - 30);
+    ctx.stroke();
+
+    ctx.font = '500 21px monospace';
+    ctx.fillStyle = '#64748B';
+    ctx.fillText('ID: FRNYX-2708-DEV  •  UNIVERSITAS BATURAJA (INFORMATIKA)', 120, footY);
+
+    ctx.fillStyle = '#72E6E0';
+    ctx.fillText('OFFICIAL DIGITAL IDENTIFICATION • 2026', w - 570, footY);
+  }
+
+  function canvasToJpegBuffer(canvas) {
+    return new Promise((resolve) => {
+      canvas.toBlob((blob) => {
+        if (!blob) {
+          resolve(new Uint8Array(0));
+          return;
+        }
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          resolve(new Uint8Array(reader.result));
+        };
+        reader.readAsArrayBuffer(blob);
+      }, 'image/jpeg', 0.95);
+    });
+  }
+
+  function buildSinglePagePdfBlob(jpegBytes, w, h) {
+    const pageWidth = 595.28;
+    const pageHeight = 340.16;
+    const parts = [];
+    const offsets = [];
+    let currentLen = 0;
+
+    function addString(str) {
+      offsets.push(currentLen);
+      const enc = new TextEncoder().encode(str + '\n');
+      parts.push(enc);
+      currentLen += enc.length;
+    }
+
+    function addBinary(prefix, binBytes, suffix) {
+      offsets.push(currentLen);
+      const p1 = new TextEncoder().encode(prefix);
+      const p2 = new TextEncoder().encode(suffix);
+      parts.push(p1);
+      parts.push(binBytes);
+      parts.push(p2);
+      currentLen += p1.length + binBytes.length + p2.length;
+    }
+
+    const headerStr = '%PDF-1.4\n';
+    const headerEnc = new TextEncoder().encode(headerStr);
+    parts.push(headerEnc);
+    currentLen += headerEnc.length;
+
+    addString('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj');
+    addString('2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj');
+    addString(`3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageWidth} ${pageHeight}] /Resources << /XObject << /Im1 4 0 R >> >> /Contents 5 0 R >>\nendobj`);
+    addBinary(`4 0 obj\n<< /Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpegBytes.length} >>\nstream\n`, jpegBytes, '\nendstream\nendobj');
+    const stream1 = `q\n${pageWidth} 0 0 ${pageHeight} 0 0 cm\n/Im1 Do\nQ\n`;
+    addString(`5 0 obj\n<< /Length ${stream1.length} >>\nstream\n${stream1}endstream\nendobj`);
+
+    const startXref = currentLen;
+    let xref = 'xref\n0 6\n0000000000 65535 f \n';
+    for (let i = 0; i < offsets.length; i++) {
+      xref += String(offsets[i]).padStart(10, '0') + ' 00000 n \n';
+    }
+    xref += `trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${startXref}\n%%EOF`;
+    parts.push(new TextEncoder().encode(xref));
+
+    return new Blob(parts, { type: 'application/pdf' });
+  }
+
+  function downloadPdfBlob(blob, filename) {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename || 'Farhan_Ade_Atalarik_Business_Card.pdf';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 1000);
+  }
+
+  async function generateBusinessCardPdf() {
+    const w = 2100;
+    const h = 1200;
+
+    const photoImg = await new Promise((resolve) => {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => resolve(img);
+      img.onerror = () => resolve(null);
+      img.src = 'assets/kartu_nama.png';
+    });
+
+    const canvas = document.createElement('canvas');
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    renderMinimalistBusinessCard(ctx, w, h, photoImg);
+
+    const jpegBytes = await canvasToJpegBuffer(canvas);
+    return buildSinglePagePdfBlob(jpegBytes, w, h);
+  }
+
+  function triggerFarhanDevDownload() {
+    if (isExecutingCmd) return;
+    isExecutingCmd = true;
+
+    if (cmdTermProgress) cmdTermProgress.classList.remove('hidden');
+    if (cmdTermProgressBar) {
+      cmdTermProgressBar.style.width = '0%';
+    }
+
+    setTerminalState('COMPILING', 'executing', 'curl -s https://frnyx.dev/vcard | sh', [
+      { tag: 'scan', label: 'INIT', text: 'Initiating cryptographic handshake for @frnyx ...' },
+      { tag: 'dir', label: 'AUTH', text: 'Identity: <strong>Farhan Ade Atalarik</strong> (Universitas Baturaja)' }
+    ]);
+
+    setTimeout(() => {
+      if (cmdTermProgressBar) cmdTermProgressBar.style.width = '35%';
+      setTerminalState('RENDERING', 'executing', 'compile --photo="assets/kartu_nama.png" --dpi=300 --page=1', [
+        { tag: 'scan', label: 'ASSETS', text: 'Loading executive portrait: <strong>assets/kartu_nama.png</strong> ...' },
+        { tag: 'dir', label: 'RENDER', text: 'Rendering Dark Liquid Glass executive card (1 Page / 300 DPI) ...' },
+        { tag: 'ok', label: 'QR-CODE', text: 'Scannable matrix compiled -> farhanadeata.github.io' }
+      ]);
+    }, 450);
+
+    setTimeout(() => {
+      if (cmdTermProgressBar) cmdTermProgressBar.style.width = '80%';
+      setTerminalState('PACKAGING', 'executing', 'export --format=pdf --name="Farhan_Ade_Atalarik_Business_Card.pdf"', [
+        { tag: 'scan', label: 'BUILD', text: 'Single-page PDF 1.4 binary stream assembled' },
+        { tag: 'ok', label: 'STATUS', text: 'Process exited with code 0. Dispatching file download...' }
+      ]);
+    }, 950);
+
+    setTimeout(async () => {
+      if (cmdTermProgressBar) cmdTermProgressBar.style.width = '100%';
+      try {
+        const pdfBlob = await generateBusinessCardPdf();
+        downloadPdfBlob(pdfBlob, 'Farhan_Ade_Atalarik_Business_Card.pdf');
+        showToast('Kartu nama Farhan Ade Atalarik (PDF) berhasil diunduh!');
+        setTerminalState('DOWNLOADED', 'active', 'download complete [200 OK]', [
+          { tag: 'ok', label: 'SAVED', text: '<strong>Farhan_Ade_Atalarik_Business_Card.pdf</strong> tersimpan di Downloads!' },
+          { tag: 'dir', label: 'DONE', text: 'Terima kasih telah mengunjungi profil @frnyx.' }
+        ]);
+      } catch (err) {
+        showToast('Gagal memproses kartu nama. Coba lagi.');
+      }
+
+      setTimeout(() => {
+        closeCommandPalette();
+        isExecutingCmd = false;
+        if (cmdTermProgress) cmdTermProgress.classList.add('hidden');
+      }, 700);
+    }, 1450);
+  }
+
+  if (btnCommandPalette) {
+    btnCommandPalette.addEventListener('click', (e) => {
+      e.preventDefault();
+      openCommandPalette();
+    });
+  }
+
+  if (cmdPaletteCloseBtn) {
+    cmdPaletteCloseBtn.addEventListener('click', () => {
+      closeCommandPalette();
+    });
+  }
+
+  if (cmdPaletteModal) {
+    cmdPaletteModal.addEventListener('click', (e) => {
+      if (e.target === cmdPaletteModal) {
+        closeCommandPalette();
+      }
+    });
+  }
+
+  if (cmdPaletteInput) {
+    cmdPaletteInput.addEventListener('input', (e) => {
+      renderCommandResults(e.target.value);
+    });
+
+    cmdPaletteInput.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setCmdActiveIndex(activeCmdIndex + 1);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setCmdActiveIndex(activeCmdIndex - 1);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        executeCommand(activeCmdIndex);
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeCommandPalette();
+      }
+    });
+  }
+
   document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (cmdPaletteModal && !cmdPaletteModal.classList.contains('hidden')) {
+        closeCommandPalette();
+      } else {
+        openCommandPalette();
+      }
+      return;
+    }
+
+    if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+      if (cmdPaletteModal && cmdPaletteModal.classList.contains('hidden')) {
+        e.preventDefault();
+        openCommandPalette();
+        return;
+      }
+    }
+
+    if (cmdPaletteModal && !cmdPaletteModal.classList.contains('hidden')) {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeCommandPalette();
+        return;
+      }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setCmdActiveIndex(activeCmdIndex + 1);
+        return;
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setCmdActiveIndex(activeCmdIndex - 1);
+        return;
+      }
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        executeCommand(activeCmdIndex);
+        return;
+      }
+    }
+
     if (e.key === 'Escape') {
       closeLinkPopover();
       document.querySelectorAll('.custom-modal-backdrop:not(.hidden)').forEach(modal => {
