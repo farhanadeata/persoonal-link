@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     externalLink: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>`,
     code: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
     arrowLeft: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>`,
-    eye: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`
+    eye: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
+    star: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>`,
+    qrcode: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="5.5" y="5.5" width="2" height="2" fill="currentColor"></rect><rect x="16.5" y="5.5" width="2" height="2" fill="currentColor"></rect><rect x="5.5" y="16.5" width="2" height="2" fill="currentColor"></rect><path d="M18 13l1 2.2 2.4.3-1.8 1.7.5 2.4-2.1-1.2-2.1 1.2.5-2.4-1.8-1.7 2.4-.3z" fill="#FBBC05" stroke="#FBBC05" stroke-width="1"></path></svg>`
   };
 
   function getIconSvg(iconName) {
@@ -481,6 +483,33 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
+    if (item.id === 'ulasin') {
+      return `
+        <div class="card-leading card-leading-ulasin" aria-hidden="true">
+          <div class="ulasin-3d-scene">
+            <div class="ulasin-ambient-glow"></div>
+            <div class="ulasin-scan-ring"></div>
+            <div class="ulasin-light-trail"></div>
+            <div class="ulasin-core-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+                <rect x="5.5" y="5.5" width="2" height="2" fill="currentColor"></rect>
+                <rect x="16.5" y="5.5" width="2" height="2" fill="currentColor"></rect>
+                <rect x="5.5" y="16.5" width="2" height="2" fill="currentColor"></rect>
+                <path d="M18 13l1 2.2 2.4.3-1.8 1.7.5 2.4-2.1-1.2-2.1 1.2.5-2.4-1.8-1.7 2.4-.3z" fill="#FBBC05" stroke="#FBBC05" stroke-width="1"></path>
+              </svg>
+            </div>
+            <div class="ulasin-sparkles">
+              <span class="u-sparkle u-1"></span>
+              <span class="u-sparkle u-2"></span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     if (item.id === 'qris' || item.type === 'qris') {
       return `
         <div class="card-leading card-leading-coffee" aria-hidden="true">
@@ -584,7 +613,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const leadingHtml = getCardLeadingHtml(item);
 
-      const badgeHtml = item.badge ? `<span class="card-badge">${item.badge}</span>` : '';
+      const isLiveBadge = item.badge === 'Live Project' || item.isLive;
+      const badgeClass = isLiveBadge ? 'card-badge card-badge-live' : 'card-badge';
+      const liveDotHtml = isLiveBadge ? '<span class="badge-live-pulse" aria-hidden="true"></span>' : '';
+      const badgeHtml = item.badge ? `<span class="${badgeClass}">${liveDotHtml}${item.badge}</span>` : '';
       const descriptionHtml = item.description ? `<p class="card-description">${item.description}</p>` : '';
 
       const contentHtml = `

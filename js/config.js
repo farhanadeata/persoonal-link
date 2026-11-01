@@ -90,6 +90,17 @@ const SITE_CONFIG = {
       external: false
     },
     {
+      id: "ulasin",
+      title: "ULASIN",
+      description: "Google Review QR Generator for UMKM",
+      url: "https://ulasin-seven.vercel.app/",
+      icon: "qrcode",
+      thumbnail: "",
+      badge: "Live Project",
+      enabled: true,
+      external: true
+    },
+    {
       id: "qris",
       title: "Give Me a Coffee ☕",
       description: "Support my work & open-source projects",
@@ -116,6 +127,26 @@ const SITE_CONFIG = {
   ],
 
   projects: [
+    {
+      id: "ulasin",
+      title: "ULASIN",
+      category: "Web Development",
+      categorySlug: "web-development",
+      status: "Live Project",
+      statusType: "live",
+      summary: "Platform gratis untuk membuat poster QR Code Google Review dengan desain modern dan siap cetak untuk UMKM.",
+      problem: "Banyak pelaku UMKM dan pemilik bisnis lokal kesulitan mengumpulkan ulasan pelanggan di Google Maps secara efektif, dan poster ulasan manual sering kali kurang profesional serta tidak siap cetak.",
+      solution: "Membangun web generator poster QR Code Google Review instan dengan pencarian tempat Google Maps, pilihan template modern, standee meja kasir, dan ekspor siap cetak resolusi tinggi (PNG/PDF).",
+      technologies: ["JavaScript", "HTML5 Canvas", "EasyQRCodeJS", "Google Review API", "html2canvas", "jsPDF", "Bootstrap"],
+      role: "Lead Developer",
+      image: "assets/projects/ulasin.png",
+      visualType: "dashboard-qr",
+      links: {
+        liveDemo: "https://ulasin-seven.vercel.app/",
+        sourceCode: ""
+      }
+    },
+
     {
       id: "sikudi",
       title: "SI-KUDI",
