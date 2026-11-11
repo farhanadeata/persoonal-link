@@ -34,7 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
     terminal: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>`,
     briefcase: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>`,
     coffee: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>`,
-    send: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`
+    send: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>`,
+    award: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>`,
+    shieldCheck: `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>`,
+    download: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`,
+    arrowRight: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>`
   };
 
   function getIconSvg(iconName) {
@@ -546,6 +550,29 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
+    if (item.id === 'certificates' || item.type === 'certificates') {
+      return `
+        <div class="card-leading card-leading-certs" aria-hidden="true">
+          <div class="certs-3d-scene">
+            <div class="certs-ambient-glow"></div>
+            <div class="certs-scan-ring"></div>
+            <div class="certs-light-trail"></div>
+            <div class="certs-core-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6"></circle>
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"></path>
+                <circle cx="12" cy="8" r="2.2" fill="currentColor"></circle>
+              </svg>
+            </div>
+            <div class="certs-sparkles">
+              <span class="c-sparkle c-1"></span>
+              <span class="c-sparkle c-2"></span>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
     if (item.id === 'order' || item.type === 'email') {
       return `
         <div class="card-leading card-leading-order" aria-hidden="true">
@@ -694,6 +721,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (item.type === 'gallery' || item.id === 'projects' || item.url === '#projects') {
           e.preventDefault();
           openProjectsGallery();
+          return;
+        }
+
+        if (item.type === 'certificates' || item.id === 'certificates' || item.url === '#certificates') {
+          e.preventDefault();
+          openCertificatesGallery();
           return;
         }
 
@@ -973,6 +1006,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalId === 'modal-projects-gallery') {
       try {
         if (window.location.hash === '#projects') {
+          history.replaceState(null, null, window.location.pathname + window.location.search);
+        }
+      } catch (e) {}
+    }
+
+    if (modalId === 'modal-certificates-gallery') {
+      try {
+        if (window.location.hash === '#certificates') {
           history.replaceState(null, null, window.location.pathname + window.location.search);
         }
       } catch (e) {}
@@ -1372,20 +1413,288 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (window.location.hash === '#projects') {
       setTimeout(openProjectsGallery, 250);
+    } else if (window.location.hash === '#certificates') {
+      setTimeout(openCertificatesGallery, 250);
     }
 
     window.addEventListener('hashchange', () => {
       if (window.location.hash === '#projects') {
         openProjectsGallery();
+      } else if (window.location.hash === '#certificates') {
+        openCertificatesGallery();
       }
     });
   }
 
-  document.querySelectorAll('[data-close-modal]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const modalId = btn.getAttribute('data-close-modal');
-      closeModal(modalId);
+  let activeCertCategory = 'all';
+  let activeCertIndex = 0;
+
+  function openCertificatesGallery() {
+    try {
+      const modal = document.getElementById('modal-certificates-gallery');
+      if (!modal) {
+        throw new Error("Elemen #modal-certificates-gallery tidak ditemukan dalam DOM.");
+      }
+      openModal('modal-certificates-gallery');
+      renderCertificatesFilterTabs();
+      renderCertificateCards(activeCertCategory);
+
+      try {
+        history.replaceState(null, null, '#certificates');
+      } catch (e) {}
+    } catch (err) {
+      console.error("[Frnyx Certificates] Gagal membuka galeri sertifikat:", err);
+      showToast("Gagal membuka galeri sertifikat: " + (err.message || "Kesalahan internal"));
+    }
+  }
+
+  window.openCertificatesGallery = openCertificatesGallery;
+
+  function renderCertificatesFilterTabs() {
+    const tabsContainer = document.getElementById('cert-filter-tabs');
+    if (!tabsContainer) return;
+
+    const categories = config.certificateCategories || [
+      { id: "all", name: "Semua (6)" },
+      { id: "cybersecurity", name: "Cybersecurity (2)" },
+      { id: "cloud-ai", name: "Cloud & AI (2)" },
+      { id: "other", name: "Lainnya (2)" }
+    ];
+
+    tabsContainer.innerHTML = '';
+    categories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = `gallery-filter-tab-btn ${cat.id === activeCertCategory ? 'active' : ''}`;
+      btn.setAttribute('data-category', cat.id);
+
+      let count = 0;
+      if (cat.id === 'all') {
+        count = (config.certificates || []).length;
+      } else {
+        count = (config.certificates || []).filter(c => c.categorySlug === cat.id).length;
+      }
+
+      btn.innerHTML = `
+        <span class="filter-tab-label">${cat.name.replace(/\s*\(\d+\)/, '')}</span>
+        <span class="filter-tab-counter">${count}</span>
+      `;
+
+      btn.addEventListener('click', () => {
+        activeCertCategory = cat.id;
+        tabsContainer.querySelectorAll('.gallery-filter-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderCertificateCards(cat.id);
+      });
+      tabsContainer.appendChild(btn);
     });
+  }
+
+  function renderCertificateCards(categoryId = 'all') {
+    const gridContainer = document.getElementById('certificates-grid');
+    const emptyState = document.getElementById('certificates-empty-state');
+    if (!gridContainer) return;
+
+    gridContainer.innerHTML = '';
+    const allCerts = config.certificates || [];
+    const filtered = categoryId === 'all' ? allCerts : allCerts.filter(c => c.categorySlug === categoryId);
+
+    if (emptyState) {
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
+    }
+
+    filtered.forEach((c, idx) => {
+      const card = document.createElement('article');
+      card.className = 'cert-card cert-card-animated';
+      card.setAttribute('data-id', c.id);
+      card.setAttribute('data-category', c.categorySlug || 'other');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `Lihat sertifikat ${c.title}`);
+      card.style.animationDelay = `${0.06 + idx * 0.06}s`;
+
+      const skillsHtml = (c.skills || []).slice(0, 3).map(s => `<span class="cert-skill-chip">${s}</span>`).join('');
+
+      card.innerHTML = `
+        <div class="cert-card-glare" aria-hidden="true"></div>
+        <div class="cert-thumb-frame">
+          <img src="${c.image}" alt="Sertifikat ${c.title}" class="cert-thumb-img" loading="lazy" decoding="async" />
+          <div class="cert-thumb-overlay" aria-hidden="true">
+            <span class="cert-thumb-btn-pill">
+              ${ICONS.eye || ''}
+              <span>Pratinjau Kredensial</span>
+            </span>
+          </div>
+        </div>
+        <div class="cert-card-body">
+          <div class="cert-meta-top">
+            <span class="cert-issuer-pill">${c.issuer}</span>
+            <span class="cert-date-text">${c.date}</span>
+          </div>
+          <h3 class="cert-card-title">${c.title}</h3>
+          <div class="cert-id-tag">
+            ${ICONS.shieldCheck || ''}
+            <span>${c.credentialId ? 'ID: ' + c.credentialId : 'Credential Verified'}</span>
+          </div>
+          <div class="cert-skills-wrap">
+            ${skillsHtml}
+          </div>
+          <div class="cert-card-foot-actions">
+            <button type="button" class="cert-action-btn-main btn-view-cert">
+              ${ICONS.eye || ''}
+              <span>Lihat Detail</span>
+            </button>
+            ${c.verifyUrl ? `
+            <a href="${c.verifyUrl}" target="_blank" rel="noopener noreferrer" class="cert-action-btn-ext" aria-label="Verifikasi kredensial ${c.title}" title="Verifikasi Online" onclick="event.stopPropagation();">
+              ${ICONS.externalLink || ''}
+            </a>` : ''}
+          </div>
+        </div>
+      `;
+
+      card.addEventListener('click', () => {
+        openCertificateModal(c.id);
+      });
+
+      const viewBtn = card.querySelector('.btn-view-cert');
+      if (viewBtn) {
+        viewBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openCertificateModal(c.id);
+        });
+      }
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openCertificateModal(c.id);
+        }
+      });
+
+      gridContainer.appendChild(card);
+    });
+  }
+
+  function openCertificateModal(certId) {
+    const certs = config.certificates || [];
+    const idx = certs.findIndex(c => c.id === certId);
+    if (idx === -1) return;
+    activeCertIndex = idx;
+    const c = certs[idx];
+
+    const modal = document.getElementById('modal-certificate-detail');
+    const modalBody = document.getElementById('cert-modal-body');
+    if (!modal || !modalBody) return;
+
+    const skillsHtml = (c.skills || []).map(s => `<span class="cert-skill-chip">${s}</span>`).join('');
+
+    modalBody.innerHTML = `
+      <div class="cert-modal-image-pane">
+        <div class="cert-modal-image-wrap">
+          <img src="${c.image}" alt="Sertifikat ${c.title}" class="cert-modal-img" />
+        </div>
+      </div>
+      <div class="cert-modal-info-pane">
+        <div class="cert-modal-header-meta">
+          <span class="cert-modal-pill-badge">${c.badge || 'Verified Credential'}</span>
+          <span class="cert-modal-status-tag">
+            <span class="cert-modal-status-dot"></span>
+            VERIFIED AUTHENTIC
+          </span>
+        </div>
+        <h3 id="cert-modal-title" class="cert-modal-title">${c.title}</h3>
+        <div class="cert-modal-meta-grid">
+          <div class="cert-meta-cell">
+            <span class="cert-cell-label">Penerbit</span>
+            <span class="cert-cell-val">${c.issuer}</span>
+          </div>
+          <div class="cert-meta-cell">
+            <span class="cert-cell-label">Tanggal Terbit</span>
+            <span class="cert-cell-val">${c.date}</span>
+          </div>
+          <div class="cert-meta-cell">
+            <span class="cert-cell-label">Penerima</span>
+            <span class="cert-cell-val">Farhan Ade Atalarik</span>
+          </div>
+          <div class="cert-meta-cell">
+            <span class="cert-cell-label">ID Kredensial</span>
+            <span class="cert-cell-val">${c.credentialId || 'N/A'}</span>
+          </div>
+        </div>
+        <p class="cert-modal-desc">${c.description || ''}</p>
+        <div class="cert-modal-skills-box">
+          ${skillsHtml}
+        </div>
+        <div class="cert-modal-actions">
+          <a href="${c.image}" download="${c.id}-certificate.png" class="modal-btn-primary">
+            ${ICONS.download || ''}
+            <span>Unduh Sertifikat</span>
+          </a>
+          ${c.verifyUrl ? `
+          <a href="${c.verifyUrl}" target="_blank" rel="noopener noreferrer" class="modal-btn-secondary cert-verify-btn">
+            ${ICONS.externalLink || ''}
+            <span>Verifikasi Kredensial Resmi</span>
+          </a>` : ''}
+          <button type="button" class="modal-btn-secondary btn-close-cert-modal" data-close-modal="modal-certificate-detail">
+            <span>Tutup Pratinjau</span>
+          </button>
+        </div>
+        <div class="cert-modal-nav-row">
+          <button type="button" class="cert-modal-nav-btn btn-prev-cert" aria-label="Sertifikat sebelumnya">
+            ${ICONS.arrowLeft || ''}
+            <span>Sebelumnya</span>
+          </button>
+          <span class="cert-nav-counter">${idx + 1} / ${certs.length}</span>
+          <button type="button" class="cert-modal-nav-btn btn-next-cert" aria-label="Sertifikat berikutnya">
+            <span>Berikutnya</span>
+            ${ICONS.arrowRight || ''}
+          </button>
+        </div>
+      </div>
+    `;
+
+    openModal('modal-certificate-detail');
+
+    const prevBtn = modalBody.querySelector('.btn-prev-cert');
+    const nextBtn = modalBody.querySelector('.btn-next-cert');
+    const closeBtn = modalBody.querySelector('.btn-close-cert-modal');
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        closeModal('modal-certificate-detail');
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const prevIdx = (activeCertIndex - 1 + certs.length) % certs.length;
+        openCertificateModal(certs[prevIdx].id);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const nextIdx = (activeCertIndex + 1) % certs.length;
+        openCertificateModal(certs[nextIdx].id);
+      });
+    }
+  }
+
+  window.openCertificateModal = openCertificateModal;
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-close-modal]');
+    if (btn) {
+      const modalId = btn.getAttribute('data-close-modal');
+      if (modalId) {
+        closeModal(modalId);
+      }
+    }
   });
 
   document.querySelectorAll('.custom-modal-backdrop').forEach(backdrop => {
@@ -1456,6 +1765,8 @@ document.addEventListener('DOMContentLoaded', () => {
         action: () => {
           if (item.type === 'gallery' || item.id === 'projects') {
             openProjectsGallery();
+          } else if (item.type === 'certificates' || item.id === 'certificates') {
+            openCertificatesGallery();
           } else if (item.type === 'qris' || item.id === 'qris') {
             openModal('modal-qris');
           } else if (item.type === 'email' || item.id === 'order') {
@@ -1477,6 +1788,33 @@ document.addEventListener('DOMContentLoaded', () => {
         icon: 'code',
         action: () => {
           openProjectDetailModal(p.id);
+        }
+      });
+    });
+
+    list.push({
+      id: 'cmd-certificates',
+      title: 'Sertifikasi & Lisensi // Licenses & Certifications',
+      desc: 'Lihat 6 sertifikasi resmi: Oracle AI, CCEP Red Team Leaders, Google, Komdigi & Magang',
+      category: 'Kredensial & Sertifikasi',
+      badge: '6 Badges',
+      shortcut: 'CERT',
+      icon: 'award',
+      action: () => {
+        openCertificatesGallery();
+      }
+    });
+
+    (config.certificates || []).forEach(c => {
+      list.push({
+        id: `cert-${c.id}`,
+        title: `Sertifikat: ${c.shortTitle || c.title}`,
+        desc: `${c.issuer} • ${c.date} • ID: ${c.credentialId || 'Verified'}`,
+        category: 'Kredensial & Sertifikasi',
+        badge: c.badge || 'Verified',
+        icon: 'award',
+        action: () => {
+          openCertificateModal(c.id);
         }
       });
     });
@@ -1615,6 +1953,12 @@ document.addEventListener('DOMContentLoaded', () => {
         { tag: 'dir', label: 'MOUNT', text: 'opening <strong>/projects/ulasin/</strong> (QR Code Generator)' },
         { tag: 'ok', label: 'MATCH', text: '2 endpoints loaded &bull; Tekan <kbd>&crarr; Enter</kbd> untuk eksekusi' }
       ]);
+    } else if (q.includes('sertifikat') || q.includes('cert') || q.includes('oracle') || q.includes('ccep') || q.includes('magang') || q.includes('komdigi') || q.includes('cyber')) {
+      setTerminalState('CREDENTIALS', 'active', `cat /sys/credentials/${q}.json`, [
+        { tag: 'scan', label: 'AUTH', text: 'Validating cryptographic credentials for @frnyx ... [200 OK]' },
+        { tag: 'dir', label: 'REGISTRY', text: 'Official verified credentials from Oracle, Red Team Leaders, Komdigi & Google' },
+        { tag: 'ok', label: 'READY', text: 'Tekan <kbd>&crarr; Enter</kbd> untuk membuka pratinjau sertifikat' }
+      ]);
     } else if (currentFilteredCommands.length > 0) {
       const top = currentFilteredCommands[0];
       setTerminalState(`FOUND [${currentFilteredCommands.length}]`, 'active', `find /sys -name "*${q}*"`, [
@@ -1715,6 +2059,11 @@ document.addEventListener('DOMContentLoaded', () => {
           { tag: 'dir', label: 'DIR', text: 'target directory: <strong>/var/projects/ulasin/</strong>' },
           { tag: 'ok', label: 'TARGET', text: `${cur.title} &bull; ${cur.desc}` }
         ]);
+      } else if ((cur.id || '').startsWith('cert-') || cur.id === 'cmd-certificates') {
+        setTerminalState('CREDENTIAL', 'active', `view /sys/credentials/${cur.id}.cert`, [
+          { tag: 'dir', label: 'TARGET', text: `<strong>${cur.title}</strong>` },
+          { tag: 'ok', label: 'ACTION', text: 'Tekan Enter untuk membuka detail sertifikat resmi' }
+        ]);
       } else {
         setTerminalState('READY', 'active', `exec ./${cur.id}.sh`, [
           { tag: 'dir', label: 'TARGET', text: `<strong>${cur.title}</strong> [${cur.category}]` },
@@ -1748,11 +2097,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const isUlasin = (cmd.id || '').includes('ulasin');
+    const isCert = (cmd.id || '').startsWith('cert-') || cmd.id === 'cmd-certificates';
     if (isUlasin) {
       setTerminalState('EXECUTING', 'executing', `sh ./launch.sh --target="ulasin" --open-browser`, [
         { tag: 'exec', label: 'EXEC', text: 'mounting /sys/projects/ulasin/ ... [DONE]' },
         { tag: 'scan', label: 'SOCKET', text: 'handshake https://ulasin-seven.vercel.app/ ... 200 OK' },
         { tag: 'ok', label: 'DISPATCH', text: 'Membuka aplikasi ULASIN di tab baru...' }
+      ]);
+    } else if (isCert) {
+      setTerminalState('EXECUTING', 'executing', `view /sys/credentials/${cmd.id}.cert`, [
+        { tag: 'exec', label: 'EXEC', text: `reading verified certificate <strong>${cmd.title}</strong> ...` },
+        { tag: 'scan', label: 'AUTH', text: 'verified authentic signature 200 OK' },
+        { tag: 'ok', label: 'DISPATCH', text: 'Membuka pratinjau sertifikat...' }
       ]);
     } else {
       setTerminalState('EXECUTING', 'executing', `sh ./launch.sh --target="${cmd.id}"`, [
@@ -1787,55 +2143,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function drawRealisticQr(ctx, x, y, size) {
     const matrix = [
-      [1,1,1,1,1,1,1,0,1,0,1,1,0,0,1,0,1,1,1,1,1,1,1],
-      [1,0,0,0,0,0,1,0,0,1,0,1,1,0,1,0,1,0,0,0,0,0,1],
-      [1,0,1,1,1,0,1,0,1,1,0,0,1,1,0,0,1,0,1,1,1,0,1],
-      [1,0,1,1,1,0,1,0,0,0,1,0,1,0,1,0,1,0,1,1,1,0,1],
-      [1,0,1,1,1,0,1,0,1,0,0,1,0,1,0,0,1,0,1,1,1,0,1],
-      [1,0,0,0,0,0,1,0,1,1,0,0,1,0,1,0,1,0,0,0,0,0,1],
-      [1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1],
-      [0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,0,0],
-      [1,1,0,1,0,1,1,1,0,0,1,0,1,1,0,1,1,0,1,0,1,1,0],
-      [0,1,1,0,1,0,0,1,1,0,1,0,0,1,1,0,0,1,0,1,0,1,1],
-      [1,0,0,1,0,1,1,0,1,1,1,1,1,0,1,1,0,0,1,1,0,0,1],
-      [0,1,1,0,1,1,0,1,0,1,0,0,0,1,0,1,1,0,1,0,1,1,0],
-      [1,0,1,0,0,1,1,0,1,1,0,1,1,0,1,1,0,1,0,1,0,1,1],
-      [0,1,0,1,1,0,1,1,0,1,1,0,1,0,0,1,1,0,1,1,0,1,0],
-      [1,1,0,0,1,1,0,1,1,0,1,1,1,1,0,0,1,1,0,0,1,1,1],
-      [0,0,0,0,0,0,0,0,1,0,1,0,1,0,1,1,0,1,0,1,0,0,1],
-      [1,1,1,1,1,1,1,0,1,1,0,1,0,1,0,1,1,0,1,0,1,1,0],
-      [1,0,0,0,0,0,1,0,0,0,1,0,1,1,0,0,1,1,0,0,1,0,1],
-      [1,0,1,1,1,0,1,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1,1],
-      [1,0,1,1,1,0,1,0,0,1,1,0,1,0,1,1,0,1,0,1,1,0,1],
-      [1,0,1,1,1,0,1,0,1,0,0,1,0,1,0,1,1,0,1,0,1,1,0],
-      [1,0,0,0,0,0,1,0,1,1,0,1,1,0,1,0,0,1,0,1,0,0,1],
-      [1,1,1,1,1,1,1,0,1,0,1,0,1,1,0,1,1,0,1,1,0,1,1]
+      [1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,1,1,1,1,1,1,1],
+      [1,0,0,0,0,0,1,0,1,0,1,0,0,0,0,1,1,0,1,0,0,0,0,0,1],
+      [1,0,1,1,1,0,1,0,0,1,1,0,1,0,1,1,1,0,1,0,1,1,1,0,1],
+      [1,0,1,1,1,0,1,0,1,0,0,1,1,1,1,1,0,0,1,0,1,1,1,0,1],
+      [1,0,1,1,1,0,1,0,0,0,0,1,0,0,1,0,1,0,1,0,1,1,1,0,1],
+      [1,0,0,0,0,0,1,0,1,0,1,0,1,0,1,1,0,0,1,0,0,0,0,0,1],
+      [1,1,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,1,1],
+      [0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,1,1,0,0,0,0,0,0,0,0],
+      [1,1,1,1,1,0,1,1,1,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1,0],
+      [0,1,0,1,0,0,0,1,1,0,0,1,1,0,0,0,1,0,0,1,0,0,0,1,0],
+      [1,1,0,1,0,1,1,0,1,0,1,0,1,0,0,1,1,0,1,0,1,1,0,1,1],
+      [1,1,0,1,0,1,0,1,1,0,0,1,1,0,1,1,0,1,1,1,0,0,0,0,1],
+      [0,0,1,1,0,0,1,1,1,1,1,0,1,1,0,1,0,1,1,0,1,0,1,1,1],
+      [1,0,1,0,0,1,0,1,0,0,0,1,0,1,0,0,1,1,0,1,0,1,0,1,0],
+      [1,0,1,1,1,1,1,1,0,0,1,0,0,1,1,1,0,0,1,1,1,1,0,1,1],
+      [1,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,1],
+      [1,0,0,0,0,0,1,1,1,1,0,0,0,1,1,0,1,1,1,1,1,0,1,0,0],
+      [0,0,0,0,0,0,0,0,1,0,1,1,0,0,0,1,1,0,0,0,1,1,0,0,0],
+      [1,1,1,1,1,1,1,0,1,1,0,0,1,1,1,0,1,0,1,0,1,0,1,1,1],
+      [1,0,0,0,0,0,1,0,0,1,1,0,1,0,1,0,1,0,0,0,1,1,0,1,0],
+      [1,0,1,1,1,0,1,0,1,0,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0],
+      [1,0,1,1,1,0,1,0,1,0,0,1,0,1,0,0,0,1,1,0,1,1,1,1,1],
+      [1,0,1,1,1,0,1,0,1,1,0,0,1,0,0,1,0,0,0,0,0,1,1,0,1],
+      [1,0,0,0,0,0,1,0,1,1,1,0,0,0,1,1,1,0,0,1,1,1,0,0,1],
+      [1,1,1,1,1,1,1,0,1,1,0,0,0,1,1,0,0,0,1,1,1,1,1,1,1]
     ];
     const n = matrix.length;
     const mod = size / n;
-    ctx.fillStyle = '#0F172A';
+    ctx.fillStyle = '#060810';
     for (let r = 0; r < n; r++) {
       for (let c = 0; c < n; c++) {
         if (matrix[r][c] === 1) {
-          ctx.fillRect(x + c * mod, y + r * mod, mod - 0.5, mod - 0.5);
+          ctx.fillRect(Math.round(x + c * mod), Math.round(y + r * mod), Math.ceil(mod), Math.ceil(mod));
         }
       }
     }
-    const centerSize = mod * 5;
-    const centerX = x + (size - centerSize) / 2;
-    const centerY = y + (size - centerSize) / 2;
-    ctx.fillStyle = '#FFFFFF';
-    ctx.fillRect(centerX, centerY, centerSize, centerSize);
-    ctx.fillStyle = '#72E6E0';
-    ctx.fillRect(centerX + 3, centerY + 3, centerSize - 6, centerSize - 6);
-    ctx.font = '900 13px sans-serif';
-    ctx.fillStyle = '#060810';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('FRX', centerX + centerSize / 2, centerY + centerSize / 2);
   }
 
-  function renderMinimalistBusinessCard(ctx, w, h, photoImg) {
+  function renderMinimalistBusinessCard(ctx, w, h, photoImg, qrImg) {
     const bgGrad = ctx.createLinearGradient(0, 0, w, h);
     bgGrad.addColorStop(0, '#06080e');
     bgGrad.addColorStop(0.5, '#0b0f19');
@@ -1862,39 +2208,31 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.textAlign = 'left';
     ctx.textBaseline = 'alphabetic';
 
-    ctx.font = '700 20px monospace';
-    ctx.fillStyle = '#72E6E0';
-    ctx.fillText('FRNYX OS // EXECUTIVE IDENTIFICATION', 120, 150);
-
-    ctx.font = '700 20px monospace';
-    ctx.fillStyle = '#27C93F';
-    ctx.fillText('● AVAILABLE FOR PROJECTS', 960, 150);
-
-    const nameGrad = ctx.createLinearGradient(120, 300, 950, 300);
+    const nameGrad = ctx.createLinearGradient(120, 220, 950, 220);
     nameGrad.addColorStop(0, '#FFFFFF');
     nameGrad.addColorStop(0.85, '#F0FDFA');
     nameGrad.addColorStop(1, '#A5F3FC');
     ctx.fillStyle = nameGrad;
     ctx.font = '900 84px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-    ctx.fillText('FARHAN ADE ATALARIK', 120, 330);
+    ctx.fillText('FARHAN ADE ATALARIK', 120, 240);
 
     ctx.font = '700 30px monospace';
     ctx.fillStyle = '#72E6E0';
-    ctx.fillText('FULLSTACK WEB DEVELOPER • IT SPECIALIST', 120, 400);
+    ctx.fillText('FULLSTACK WEB DEVELOPER • IT SPECIALIST', 120, 310);
 
     ctx.font = '400 26px sans-serif';
     ctx.fillStyle = '#94A3B8';
-    ctx.fillText('“Transforming Ideas into Digital Solutions”', 120, 460);
+    ctx.fillText('“Transforming Ideas into Digital Solutions”', 120, 370);
 
-    const divGrad = ctx.createLinearGradient(120, 505, 1370, 505);
+    const divGrad = ctx.createLinearGradient(120, 415, 1370, 415);
     divGrad.addColorStop(0, 'rgba(114, 230, 224, 0.45)');
     divGrad.addColorStop(0.8, 'rgba(114, 230, 224, 0.1)');
     divGrad.addColorStop(1, 'transparent');
     ctx.strokeStyle = divGrad;
     ctx.lineWidth = 2;
     ctx.beginPath();
-    ctx.moveTo(120, 505);
-    ctx.lineTo(1370, 505);
+    ctx.moveTo(120, 415);
+    ctx.lineTo(1370, 415);
     ctx.stroke();
 
     const contacts = [
@@ -1905,9 +2243,9 @@ document.addEventListener('DOMContentLoaded', () => {
       { label: 'LINKEDIN', val: 'linkedin.com/in/farhan-ade-atalarik' }
     ];
 
-    let cY = 540;
+    let cY = 460;
     const cW = 1250;
-    const cH = 74;
+    const cH = 78;
 
     contacts.forEach(c => {
       ctx.fillStyle = 'rgba(15, 20, 34, 0.65)';
@@ -1919,19 +2257,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ctx.font = '700 20px monospace';
       ctx.fillStyle = '#72E6E0';
-      ctx.fillText(c.label, 148, cY + 45);
+      ctx.fillText(c.label, 148, cY + 47);
 
       ctx.font = '600 26px -apple-system, sans-serif';
       ctx.fillStyle = '#F8FAFC';
-      ctx.fillText(c.val, 330, cY + 46);
+      ctx.fillText(c.val, 330, cY + 48);
 
       cY += cH + 16;
     });
 
     const fX = 1480;
-    const fY = 150;
+    const fY = 120;
     const fW = 500;
-    const fH = 620;
+    const fH = 640;
 
     ctx.save();
     drawRoundRect(ctx, fX, fY, fW, fH, 32);
@@ -1990,8 +2328,8 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.lineTo(fX + 167, fY + fH - 51);
     ctx.stroke();
 
-    const qrBoxY = 800;
-    const qrBoxH = 250;
+    const qrBoxY = 790;
+    const qrBoxH = 270;
 
     ctx.fillStyle = 'rgba(14, 18, 30, 0.85)';
     drawRoundRect(ctx, fX, qrBoxY, fW, qrBoxH, 24);
@@ -2000,48 +2338,46 @@ document.addEventListener('DOMContentLoaded', () => {
     ctx.lineWidth = 2;
     ctx.stroke();
 
-    const qrX = fX + 28;
-    const qrY = qrBoxY + 30;
-    const qrS = 190;
+    const qrX = fX + 24;
+    const qrY = qrBoxY + 24;
+    const qrS = 222;
 
     ctx.fillStyle = '#FFFFFF';
     drawRoundRect(ctx, qrX, qrY, qrS, qrS, 14);
     ctx.fill();
 
-    drawRealisticQr(ctx, qrX + 12, qrY + 12, qrS - 24);
+    if (qrImg) {
+      ctx.drawImage(qrImg, qrX + 14, qrY + 14, qrS - 28, qrS - 28);
+    } else {
+      drawRealisticQr(ctx, qrX + 14, qrY + 14, qrS - 28);
+    }
 
-    const txtX = fX + 242;
+    const txtX = fX + 266;
     ctx.textAlign = 'left';
-    ctx.font = '700 20px monospace';
+    ctx.font = '700 21px monospace';
     ctx.fillStyle = '#72E6E0';
-    ctx.fillText('SCAN TO CONNECT', txtX, qrBoxY + 68);
+    ctx.fillText('SCAN TO CONNECT', txtX, qrBoxY + 86);
 
     ctx.font = '500 17px -apple-system, sans-serif';
     ctx.fillStyle = '#94A3B8';
-    ctx.fillText('Digital Portfolio & Hub', txtX, qrBoxY + 102);
+    ctx.fillText('Digital Portfolio & Hub', txtX, qrBoxY + 124);
 
-    ctx.font = '700 18px monospace';
+    ctx.font = '700 19px monospace';
     ctx.fillStyle = '#FFFFFF';
-    ctx.fillText('farhanadeata.github.io', txtX, qrBoxY + 144);
+    ctx.fillText('farhanadeata.github.io', txtX, qrBoxY + 172);
 
-    ctx.font = '600 16px monospace';
-    ctx.fillStyle = '#27C93F';
-    ctx.fillText('● SSL VERIFIED URL', txtX, qrBoxY + 182);
-
-    const footY = h - 65;
+    const footY = h - 55;
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
     ctx.lineWidth = 1.5;
     ctx.beginPath();
-    ctx.moveTo(120, footY - 30);
-    ctx.lineTo(w - 120, footY - 30);
+    ctx.moveTo(120, footY - 24);
+    ctx.lineTo(w - 120, footY - 24);
     ctx.stroke();
 
-    ctx.font = '500 21px monospace';
-    ctx.fillStyle = '#64748B';
-    ctx.fillText('ID: FRNYX-2708-DEV  •  UNIVERSITAS BATURAJA (INFORMATIKA)', 120, footY);
-
-    ctx.fillStyle = '#72E6E0';
-    ctx.fillText('OFFICIAL DIGITAL IDENTIFICATION • 2026', w - 570, footY);
+    ctx.font = '600 20px monospace';
+    ctx.fillStyle = 'rgba(114, 230, 224, 0.65)';
+    ctx.textAlign = 'center';
+    ctx.fillText('OFFICIAL DIGITAL IDENTIFICATION • 2026', w / 2, footY);
   }
 
   function canvasToJpegBuffer(canvas) {
@@ -2124,19 +2460,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const w = 2100;
     const h = 1200;
 
-    const photoImg = await new Promise((resolve) => {
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = () => resolve(img);
-      img.onerror = () => resolve(null);
-      img.src = 'assets/kartu_nama.png';
-    });
+    const [photoImg, qrImg] = await Promise.all([
+      new Promise((resolve) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = 'assets/kartu_nama.png';
+      }),
+      new Promise((resolve) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = () => resolve(null);
+        img.src = 'assets/qr_portfolio.png';
+      })
+    ]);
 
     const canvas = document.createElement('canvas');
     canvas.width = w;
     canvas.height = h;
     const ctx = canvas.getContext('2d');
-    renderMinimalistBusinessCard(ctx, w, h, photoImg);
+    renderMinimalistBusinessCard(ctx, w, h, photoImg, qrImg);
 
     const jpegBytes = await canvasToJpegBuffer(canvas);
     return buildSinglePagePdfBlob(jpegBytes, w, h);
@@ -2280,11 +2625,41 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    const certModal = document.getElementById('modal-certificate-detail');
+    if (certModal && !certModal.classList.contains('hidden')) {
+      const certs = config.certificates || [];
+      if (certs.length > 0) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prevIdx = (activeCertIndex - 1 + certs.length) % certs.length;
+          openCertificateModal(certs[prevIdx].id);
+          return;
+        }
+        if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          const nextIdx = (activeCertIndex + 1) % certs.length;
+          openCertificateModal(certs[nextIdx].id);
+          return;
+        }
+      }
+    }
+
     if (e.key === 'Escape') {
       closeLinkPopover();
+      const certDetail = document.getElementById('modal-certificate-detail');
+      if (certDetail && !certDetail.classList.contains('hidden')) {
+        closeModal('modal-certificate-detail');
+        return;
+      }
+      const projectDetail = document.getElementById('modal-project-detail');
+      if (projectDetail && !projectDetail.classList.contains('hidden')) {
+        closeModal('modal-project-detail');
+        return;
+      }
       document.querySelectorAll('.custom-modal-backdrop:not(.hidden)').forEach(modal => {
         closeModal(modal.id);
       });
+      closeCommandPalette();
     }
   });
 

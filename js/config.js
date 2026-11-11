@@ -101,6 +101,18 @@ const SITE_CONFIG = {
       external: true
     },
     {
+      id: "certificates",
+      title: "Licenses & Certifications",
+      description: "6 Verified Credentials • Cloud, AI & Cyber",
+      url: "#certificates",
+      type: "certificates",
+      icon: "award",
+      thumbnail: "",
+      badge: "6 Badges",
+      enabled: true,
+      external: false
+    },
+    {
       id: "qris",
       title: "Give Me a Coffee ☕",
       description: "Support my work & open-source projects",
@@ -273,6 +285,112 @@ const SITE_CONFIG = {
     { id: "iot-embedded", name: "IoT & Embedded" },
     { id: "cloud-infrastructure", name: "Cloud & Infrastructure" },
     { id: "mobile-development", name: "Mobile Development" }
+  ],
+
+  certificates: [
+    {
+      id: "oracle-ai-cloud",
+      title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
+      shortTitle: "OCI 2025 AI Foundations Associate",
+      issuer: "Oracle University",
+      category: "Cloud & AI",
+      categorySlug: "cloud-ai",
+      date: "September 2025",
+      credentialId: "102620635OCI25AICFA",
+      image: "assets/cartificate/oracle.png",
+      badge: "Oracle Certified",
+      accent: "#C74634",
+      skills: ["Oracle Cloud (OCI)", "Artificial Intelligence", "Machine Learning", "Cloud Architecture"],
+      description: "Sertifikasi resmi dari Oracle University yang memvalidasi kompetensi fundamental kecerdasan buatan (AI), machine learning, arsitektur cloud OCI, dan implementasi AI pada infrastruktur modern.",
+      verifyUrl: ""
+    },
+    {
+      id: "ccep-cybersecurity",
+      title: "Certified Cybersecurity Educator Professional (CCEP)",
+      shortTitle: "CCEP Cybersecurity Educator",
+      issuer: "Red Team Leaders",
+      category: "Cybersecurity",
+      categorySlug: "cybersecurity",
+      date: "November 2026",
+      credentialId: "778be3d08b1ba186",
+      image: "assets/cartificate/ccep.png",
+      badge: "Global Credential",
+      accent: "#EF4444",
+      skills: ["Cybersecurity", "Offensive Security", "Security Education", "Threat Modeling"],
+      description: "Sertifikasi profesional internasional dari Red Team Leaders atas keberhasilan menyelesaikan ujian dan penguasaan materi edukasi keamanan siber tingkat profesional.",
+      verifyUrl: "https://courses.redteamleaders.com/exam-completion/778be3d08b1ba186"
+    },
+    {
+      id: "fundamental-cybersecurity",
+      title: "Fundamental Cybersecurity",
+      shortTitle: "Fundamental Cybersecurity",
+      issuer: "KOMDIGI × Google",
+      category: "Cybersecurity",
+      categorySlug: "cybersecurity",
+      date: "Agustus 2025",
+      credentialId: "19510934840-989/FGA/BLSDM.Komdigi/2025",
+      image: "assets/cartificate/fundamental.png",
+      badge: "FGA Komdigi",
+      accent: "#4285F4",
+      skills: ["Network Security", "Security Operations", "Threat Analysis", "Data Protection"],
+      description: "Pelatihan Fresh Graduate Academy (FGA) Digital Talent Scholarship oleh Kementerian Komunikasi dan Digital RI bekerja sama dengan Google selama 10 jam pelatihan intensif.",
+      verifyUrl: ""
+    },
+    {
+      id: "intro-cloud-computing",
+      title: "Introduction To Cloud Computing",
+      shortTitle: "Intro To Cloud Computing",
+      issuer: "KOMDIGI (DTS)",
+      category: "Cloud & Infrastructure",
+      categorySlug: "cloud-ai",
+      date: "September 2025",
+      credentialId: "2299864850-10630/MS/BLSDM.Komdigi/2025",
+      image: "assets/cartificate/cloud.png",
+      badge: "Micro Skill",
+      accent: "#00A3E0",
+      skills: ["Cloud Concepts", "Cloud Storage", "Virtualization", "Cloud Security"],
+      description: "Pelatihan Micro Skill Digital Talent Scholarship oleh Kementerian Komunikasi dan Digital RI yang diselenggarakan oleh Pusat Pengembangan Literasi Digital.",
+      verifyUrl: ""
+    },
+    {
+      id: "social-media-management",
+      title: "Social Media Management untuk Brand Digital",
+      shortTitle: "Social Media Management",
+      issuer: "KOMDIGI (DTS)",
+      category: "Digital Marketing",
+      categorySlug: "other",
+      date: "Agustus 2025",
+      credentialId: "22910025850-7077/MS/BLSDM.Komdigi/2025",
+      image: "assets/cartificate/social media.png",
+      badge: "Micro Skill",
+      accent: "#8B5CF6",
+      skills: ["Digital Branding", "Content Strategy", "Social Analytics", "Campaign Management"],
+      description: "Pelatihan Micro Skill Digital Talent Scholarship oleh Kementerian Komunikasi dan Digital RI untuk strategi pengelolaan media sosial dan branding digital profesional.",
+      verifyUrl: ""
+    },
+    {
+      id: "magang-rutan-baturaja",
+      title: "Program Pemagangan Lulusan Perguruan Tinggi",
+      shortTitle: "Pemagangan Nasional KEMNAKER",
+      issuer: "KEMNAKER RI × Rutan Kelas IIB Baturaja",
+      category: "Internship & Government",
+      categorySlug: "other",
+      date: "Desember 2025 - Juni 2026",
+      credentialId: "MN.016.002731.03.2025",
+      image: "assets/cartificate/magang.png",
+      badge: "Predikat Sangat Baik",
+      accent: "#10B981",
+      skills: ["Pengelola Fasilitas Umum", "Digitalisasi Layanan", "Sistem Administrasi", "IT Support"],
+      description: "Sertifikat resmi Program Pemagangan Lulusan Perguruan Tinggi Kemenaker RI pada posisi Pengelola Fasilitas Umum di Rumah Tahanan Negara Kelas IIB Baturaja dengan predikat SANGAT BAIK.",
+      verifyUrl: ""
+    }
+  ],
+
+  certificateCategories: [
+    { id: "all", name: "Semua (6)" },
+    { id: "cybersecurity", name: "Cybersecurity (2)" },
+    { id: "cloud-ai", name: "Cloud & AI (2)" },
+    { id: "other", name: "Lainnya (2)" }
   ],
 
   socials: [
