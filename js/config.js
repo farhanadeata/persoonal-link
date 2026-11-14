@@ -103,12 +103,12 @@ const SITE_CONFIG = {
     {
       id: "certificates",
       title: "Licenses & Certifications",
-      description: "6 Verified Credentials • Cloud, AI & Cyber",
+      description: "7 Verified Credentials • Cloud, AI, Cyber & Systems",
       url: "#certificates",
       type: "certificates",
       icon: "award",
       thumbnail: "",
-      badge: "6 Badges",
+      badge: "7 Badges",
       enabled: true,
       external: false
     },
@@ -289,6 +289,22 @@ const SITE_CONFIG = {
 
   certificates: [
     {
+      id: "ccep-cybersecurity",
+      title: "Certified Cybersecurity Educator Professional (CCEP)",
+      shortTitle: "CCEP Cybersecurity Educator",
+      issuer: "Red Team Leaders",
+      category: "Cybersecurity",
+      categorySlug: "cybersecurity",
+      date: "November 2026",
+      credentialId: "778be3d08b1ba186",
+      image: "assets/cartificate/ccep.png",
+      badge: "Global Credential",
+      accent: "#EF4444",
+      skills: ["Cybersecurity", "Offensive Security", "Security Education", "Threat Modeling"],
+      description: "Sertifikasi profesional internasional dari Red Team Leaders atas keberhasilan menyelesaikan ujian dan penguasaan materi edukasi keamanan siber tingkat profesional.",
+      verifyUrl: "https://courses.redteamleaders.com/exam-completion/778be3d08b1ba186"
+    },
+    {
       id: "oracle-ai-cloud",
       title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
       shortTitle: "OCI 2025 AI Foundations Associate",
@@ -305,20 +321,36 @@ const SITE_CONFIG = {
       verifyUrl: ""
     },
     {
-      id: "ccep-cybersecurity",
-      title: "Certified Cybersecurity Educator Professional (CCEP)",
-      shortTitle: "CCEP Cybersecurity Educator",
-      issuer: "Red Team Leaders",
-      category: "Cybersecurity",
-      categorySlug: "cybersecurity",
+      id: "cisco-operating-systems-basics",
+      title: "Operating Systems Basics",
+      shortTitle: "Cisco OS Basics",
+      issuer: "Cisco Networking Academy",
+      category: "IT & Operating Systems",
+      categorySlug: "other",
       date: "November 2026",
-      credentialId: "778be3d08b1ba186",
-      image: "assets/cartificate/ccep.png",
-      badge: "Global Credential",
-      accent: "#EF4444",
-      skills: ["Cybersecurity", "Offensive Security", "Security Education", "Threat Modeling"],
-      description: "Sertifikasi profesional internasional dari Red Team Leaders atas keberhasilan menyelesaikan ujian dan penguasaan materi edukasi keamanan siber tingkat profesional.",
-      verifyUrl: "https://courses.redteamleaders.com/exam-completion/778be3d08b1ba186"
+      credentialId: "9c0ef944-e71d-4def-9cdf-27470713fba9",
+      image: "assets/cartificate/cisco.png",
+      badge: "Cisco Verified",
+      accent: "#049FD9",
+      skills: ["Operating Systems", "Linux & Shell", "Windows Administration", "OS Security", "Mobile Networking"],
+      description: "Sertifikasi kredensial resmi dari Cisco Networking Academy atas keberhasilan menyelesaikan kursus Operating Systems Basics, memvalidasi pemahaman arsitektur sistem operasi Windows & Linux, konfigurasi jaringan mobile, serta implementasi keamanan sistem operasi.",
+      verifyUrl: "https://www.credly.com/badges/9c0ef944-e71d-4def-9cdf-27470713fba9/public_url"
+    },
+    {
+      id: "magang-rutan-baturaja",
+      title: "Program Pemagangan Lulusan Perguruan Tinggi",
+      shortTitle: "Pemagangan Nasional KEMNAKER",
+      issuer: "KEMNAKER RI × Rutan Kelas IIB Baturaja",
+      category: "Internship & Government",
+      categorySlug: "other",
+      date: "Desember 2025 - Juni 2026",
+      credentialId: "MN.016.002731.03.2025",
+      image: "assets/cartificate/magang.png",
+      badge: "Predikat Sangat Baik",
+      accent: "#10B981",
+      skills: ["Pengelola Fasilitas Umum", "Digitalisasi Layanan", "Sistem Administrasi", "IT Support"],
+      description: "Sertifikat resmi Program Pemagangan Lulusan Perguruan Tinggi Kemenaker RI pada posisi Pengelola Fasilitas Umum di Rumah Tahanan Negara Kelas IIB Baturaja dengan predikat SANGAT BAIK.",
+      verifyUrl: ""
     },
     {
       id: "fundamental-cybersecurity",
@@ -367,30 +399,14 @@ const SITE_CONFIG = {
       skills: ["Digital Branding", "Content Strategy", "Social Analytics", "Campaign Management"],
       description: "Pelatihan Micro Skill Digital Talent Scholarship oleh Kementerian Komunikasi dan Digital RI untuk strategi pengelolaan media sosial dan branding digital profesional.",
       verifyUrl: ""
-    },
-    {
-      id: "magang-rutan-baturaja",
-      title: "Program Pemagangan Lulusan Perguruan Tinggi",
-      shortTitle: "Pemagangan Nasional KEMNAKER",
-      issuer: "KEMNAKER RI × Rutan Kelas IIB Baturaja",
-      category: "Internship & Government",
-      categorySlug: "other",
-      date: "Desember 2025 - Juni 2026",
-      credentialId: "MN.016.002731.03.2025",
-      image: "assets/cartificate/magang.png",
-      badge: "Predikat Sangat Baik",
-      accent: "#10B981",
-      skills: ["Pengelola Fasilitas Umum", "Digitalisasi Layanan", "Sistem Administrasi", "IT Support"],
-      description: "Sertifikat resmi Program Pemagangan Lulusan Perguruan Tinggi Kemenaker RI pada posisi Pengelola Fasilitas Umum di Rumah Tahanan Negara Kelas IIB Baturaja dengan predikat SANGAT BAIK.",
-      verifyUrl: ""
     }
   ],
 
   certificateCategories: [
-    { id: "all", name: "Semua (6)" },
+    { id: "all", name: "Semua (7)" },
     { id: "cybersecurity", name: "Cybersecurity (2)" },
     { id: "cloud-ai", name: "Cloud & AI (2)" },
-    { id: "other", name: "Lainnya (2)" }
+    { id: "other", name: "Lainnya (3)" }
   ],
 
   socials: [

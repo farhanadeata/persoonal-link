@@ -1455,10 +1455,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!tabsContainer) return;
 
     const categories = config.certificateCategories || [
-      { id: "all", name: "Semua (6)" },
+      { id: "all", name: "Semua (7)" },
       { id: "cybersecurity", name: "Cybersecurity (2)" },
       { id: "cloud-ai", name: "Cloud & AI (2)" },
-      { id: "other", name: "Lainnya (2)" }
+      { id: "other", name: "Lainnya (3)" }
     ];
 
     tabsContainer.innerHTML = '';
@@ -1795,9 +1795,9 @@ document.addEventListener('DOMContentLoaded', () => {
     list.push({
       id: 'cmd-certificates',
       title: 'Sertifikasi & Lisensi // Licenses & Certifications',
-      desc: 'Lihat 6 sertifikasi resmi: Oracle AI, CCEP Red Team Leaders, Google, Komdigi & Magang',
+      desc: 'Lihat 7 sertifikasi resmi: CCEP Red Team Leaders, Oracle AI, Cisco, Magang, Google & Komdigi',
       category: 'Kredensial & Sertifikasi',
-      badge: '6 Badges',
+      badge: '7 Badges',
       shortcut: 'CERT',
       icon: 'award',
       action: () => {
@@ -1953,10 +1953,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { tag: 'dir', label: 'MOUNT', text: 'opening <strong>/projects/ulasin/</strong> (QR Code Generator)' },
         { tag: 'ok', label: 'MATCH', text: '2 endpoints loaded &bull; Tekan <kbd>&crarr; Enter</kbd> untuk eksekusi' }
       ]);
-    } else if (q.includes('sertifikat') || q.includes('cert') || q.includes('oracle') || q.includes('ccep') || q.includes('magang') || q.includes('komdigi') || q.includes('cyber')) {
+    } else if (q.includes('sertifikat') || q.includes('cert') || q.includes('oracle') || q.includes('cisco') || q.includes('ccep') || q.includes('magang') || q.includes('komdigi') || q.includes('cyber')) {
       setTerminalState('CREDENTIALS', 'active', `cat /sys/credentials/${q}.json`, [
         { tag: 'scan', label: 'AUTH', text: 'Validating cryptographic credentials for @frnyx ... [200 OK]' },
-        { tag: 'dir', label: 'REGISTRY', text: 'Official verified credentials from Oracle, Red Team Leaders, Komdigi & Google' },
+        { tag: 'dir', label: 'REGISTRY', text: 'Official verified credentials from Red Team Leaders, Oracle, Cisco, Kemenaker & Komdigi' },
         { tag: 'ok', label: 'READY', text: 'Tekan <kbd>&crarr; Enter</kbd> untuk membuka pratinjau sertifikat' }
       ]);
     } else if (currentFilteredCommands.length > 0) {
